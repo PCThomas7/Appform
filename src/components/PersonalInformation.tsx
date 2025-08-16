@@ -12,17 +12,15 @@ const PersonalInformation = ({ register, errors }: PersonalInformationProps) => 
       <div className="grid grid-cols-1 gap-4">
         <div>
           <label htmlFor="name" className="block text-sm font-medium mb-1">1. Name</label>
-          <div className="grid grid-cols-12 gap-1">
-            {Array.from({ length: 12 }).map((_, index) => (
-              <input
-                key={index}
-                type="text"
-                maxLength={1}
-                className="w-full border rounded-md p-2 text-center uppercase"
-                {...register(`name_${index}`, { maxLength: 1 })}
-              />
-            ))}
-          </div>
+          <input
+            type="text"
+            id="name"
+            className="w-full border rounded-md p-2 uppercase"
+            {...register('name', { required: 'Name is required' })}
+          />
+          {errors.name && (
+            <p className="text-red-500 text-sm">{errors.name.message}</p>
+          )}
         </div>
       </div>
 
@@ -75,33 +73,29 @@ const PersonalInformation = ({ register, errors }: PersonalInformationProps) => 
       {/* Father's Name */}
       <div>
         <label htmlFor="fathersName" className="block text-sm font-medium mb-1">3. Father's Name</label>
-        <div className="grid grid-cols-12 gap-1">
-          {Array.from({ length: 12 }).map((_, index) => (
-            <input
-              key={index}
-              type="text"
-              maxLength={1}
-              className="w-full border rounded-md p-2 text-center uppercase"
-              {...register(`fathersName_${index}`, { maxLength: 1 })}
-            />
-          ))}
-        </div>
+        <input
+          type="text"
+          id="fathersName"
+          className="w-full border rounded-md p-2 uppercase"
+          {...register('fathersName', { required: 'Father\'s name is required' })}
+        />
+        {errors.fathersName && (
+          <p className="text-red-500 text-sm">{errors.fathersName.message}</p>
+        )}
       </div>
 
       {/* Occupation */}
       <div>
         <label htmlFor="occupation" className="block text-sm font-medium mb-1">4. Occupation</label>
-        <div className="grid grid-cols-12 gap-1">
-          {Array.from({ length: 12 }).map((_, index) => (
-            <input
-              key={index}
-              type="text"
-              maxLength={1}
-              className="w-full border rounded-md p-2 text-center uppercase"
-              {...register(`occupation_${index}`, { maxLength: 1 })}
-            />
-          ))}
-        </div>
+        <input
+          type="text"
+          id="occupation"
+          className="w-full border rounded-md p-2 uppercase"
+          {...register('occupation', { required: 'Occupation is required' })}
+        />
+        {errors.occupation && (
+          <p className="text-red-500 text-sm">{errors.occupation.message}</p>
+        )}
       </div>
 
       {/* Address */}
