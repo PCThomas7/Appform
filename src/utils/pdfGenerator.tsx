@@ -5,46 +5,46 @@ const styles = StyleSheet.create({
   page: {
     flexDirection: 'column',
     backgroundColor: '#FFFFFF',
-    padding: 20,
+    padding: 8,
     fontFamily: 'Helvetica',
   },
   header: {
-    marginBottom: 10,
+    marginBottom: 4,
     textAlign: 'center',
   },
   title: {
-    fontSize: 14,
+    fontSize: 10,
     fontWeight: 'bold',
-    marginBottom: 2,
+    marginBottom: 1,
   },
   subtitle: {
-    fontSize: 12,
-    marginBottom: 5,
+    fontSize: 8,
+    marginBottom: 1,
   },
   note: {
-    fontSize: 9,
-    marginTop: 2,
-    marginBottom: 5,
+    fontSize: 6,
+    marginTop: 1,
+    marginBottom: 1,
   },
   headerRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginBottom: 5,
+    marginBottom: 1,
   },
   rollNoBox: {
-    width: 80,
-    height: 25,
+    width: 40,
+    height: 14,
     border: '1px solid #000',
     marginLeft: 'auto',
   },
   rollNoLabel: {
-    fontSize: 9,
+    fontSize: 6,
     textAlign: 'center',
   },
   table: {
-    marginTop: 5,
-    marginBottom: 10,
+    marginTop: 1,
+    marginBottom: 4,
     borderWidth: 1,
     borderColor: '#000',
   },
@@ -57,15 +57,15 @@ const styles = StyleSheet.create({
     backgroundColor: '#f0f0f0',
   },
   tableCell: {
-    padding: 4,
-    fontSize: 8,
+    padding: 1,
+    fontSize: 5,
     borderRightWidth: 1,
     borderRightColor: '#000',
     textAlign: 'center',
   },
   tableCellLeft: {
-    padding: 4,
-    fontSize: 8,
+    padding: 1,
+    fontSize: 5,
     borderRightWidth: 1,
     borderRightColor: '#000',
     textAlign: 'left',
@@ -83,95 +83,142 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    marginTop: 2,
+    marginTop: 0,
   },
   checkboxLabel: {
-    fontSize: 7,
-    marginRight: 2,
+    fontSize: 5,
+    marginRight: 1,
   },
   checkbox: {
-    width: 10,
-    height: 10,
+    width: 6,
+    height: 6,
     border: '1px solid #000',
-    marginRight: 5,
+    marginRight: 1,
   },
   formRow: {
     flexDirection: 'row',
-    marginBottom: 8,
+    marginBottom: 2,
     alignItems: 'flex-start',
   },
   formLabel: {
-    fontSize: 9,
+    fontSize: 6,
     width: '20%',
-    marginRight: 5,
+    marginRight: 2,
   },
   formValue: {
     flexDirection: 'row',
     flexWrap: 'wrap',
   },
   charBox: {
-    width: 18,
-    height: 18,
+    width: 10,
+    height: 10,
     border: '1px solid #000',
-    marginRight: 2,
-    marginBottom: 2,
+    marginRight: 1,
+    marginBottom: 1,
     justifyContent: 'center',
     alignItems: 'center',
   },
   charText: {
-    fontSize: 10,
+    fontSize: 6,
     textAlign: 'center',
   },
   radioOption: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginRight: 15,
+    marginRight: 6,
   },
   radioCircle: {
-    width: 12,
-    height: 12,
-    borderRadius: 6,
-    border: '1px solid #000',
-    marginRight: 5,
-  },
-  radioFilled: {
     width: 6,
     height: 6,
     borderRadius: 3,
+    border: '1px solid #000',
+    marginRight: 1,
+  },
+  radioFilled: {
+    width: 3,
+    height: 3,
+    borderRadius: 1.5,
     backgroundColor: '#000',
-    margin: 2,
+    margin: 0.5,
   },
   radioLabel: {
-    fontSize: 9,
+    fontSize: 6,
   },
   smallNote: {
-    fontSize: 7,
+    fontSize: 4,
     fontStyle: 'italic',
-    marginTop: 2,
+    marginTop: 0,
   },
   photo: {
-    width: 80,
-    height: 100,
+    width: 50,
+    height: 60,
     border: '1px solid #000',
-    marginTop: 5,
+    marginTop: 1,
   },
   signatureRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginTop: 20,
+    marginTop: 6,
   },
   signatureBox: {
-    width: '45%',
+    width: '30%',
     alignItems: 'center',
   },
   signatureLabel: {
-    fontSize: 9,
-    marginTop: 5,
+    fontSize: 6,
+    marginTop: 1,
   },
   signature: {
-    width: 150,
-    height: 30,
+    width: 80,
+    height: 16,
     border: '1px solid #000',
+  },
+  refundSection: {
+    marginTop: 3,
+    border: '1px solid #000',
+    padding: 3,
+  },
+  refundTitle: {
+    fontSize: 6,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    marginBottom: 1,
+  },
+  refundText: {
+    fontSize: 5,
+    marginBottom: 0.5,
+    lineHeight: 1.1,
+  },
+  termsSection: {
+    marginTop: 3,
+  },
+  termItem: {
+    fontSize: 6,
+    marginBottom: 0.5,
+    lineHeight: 1.1,
+  },
+  paymentSection: {
+    marginBottom: 4,
+  },
+  paymentRow: {
+    flexDirection: 'row',
+    marginBottom: 1,
+    alignItems: 'center',
+  },
+  paymentLabel: {
+    fontSize: 6,
+    fontWeight: 'bold',
+  },
+  paymentField: {
+    marginLeft: 2,
+    height: 10,
+    border: '1px solid #000',
+    flex: 1,
+    marginRight: 2,
+  },
+  paymentText: {
+    fontSize: 6,
+    paddingLeft: 1,
   },
 });
 
@@ -233,6 +280,7 @@ const ApplicationFormPDF = ({ formData }: { formData: any }) => {
   
   return (
     <Document>
+      {/* First Page */}
       <Page size="A4" style={styles.page}>
         {/* Header */}
         <View style={styles.header}>
@@ -243,7 +291,7 @@ const ApplicationFormPDF = ({ formData }: { formData: any }) => {
             <View>
               <Text style={styles.rollNoLabel}>Roll No</Text>
               <View style={styles.rollNoBox}>
-                <Text>{formData.rollNumber}</Text>
+                <Text style={{ fontSize: 8, textAlign: 'center' }}>{formData.rollNumber}</Text>
               </View>
             </View>
           </View>
@@ -383,7 +431,7 @@ const ApplicationFormPDF = ({ formData }: { formData: any }) => {
         {/* Personal Information */}
         <View style={styles.formRow}>
           <Text style={styles.formLabel}>1. Name</Text>
-          <CharacterBoxes text={formData.name} count={12} />
+          <CharacterBoxes text={formData.name} count={30} />
         </View>
         
         <View style={styles.formRow}>
@@ -391,29 +439,29 @@ const ApplicationFormPDF = ({ formData }: { formData: any }) => {
           <View style={{ flexDirection: 'row' }}>
             <RadioButton selected={formData.gender === 'Male'} label="Male" />
             <RadioButton selected={formData.gender === 'Female'} label="Female" />
-            <Text style={[styles.formLabel, { marginLeft: 20 }]}>Date of Birth</Text>
-            <Text style={{ fontSize: 9 }}>{formatDate(formData.dateOfBirth)}</Text>
+            <Text style={[styles.formLabel, { marginLeft: 10 }]}>Date of Birth</Text>
+            <Text style={{ fontSize: 6 }}>{formatDate(formData.dateOfBirth)}</Text>
           </View>
         </View>
         
         <View style={styles.formRow}>
           <Text style={styles.formLabel}>3. Father's Name</Text>
-          <CharacterBoxes text={formData.fathersName} count={12} />
+          <CharacterBoxes text={formData.fathersName} count={30} />
         </View>
         
         <View style={styles.formRow}>
           <Text style={styles.formLabel}>4. Occupation</Text>
-          <CharacterBoxes text={formData.occupation} count={12} />
+          <CharacterBoxes text={formData.occupation} count={30} />
         </View>
         
         <View style={styles.formRow}>
           <Text style={styles.formLabel}>5. Address</Text>
           <View style={{ width: '80%' }}>
-            <CharacterBoxes text={formData.address?.substring(0, 24)} count={24} />
-            <CharacterBoxes text={formData.address?.substring(24, 48)} count={24} />
-            <CharacterBoxes text={formData.address?.substring(48, 72)} count={24} />
-            <View style={{ flexDirection: 'row', alignItems: 'center', marginTop: 2 }}>
-              <Text style={{ fontSize: 9, marginRight: 5 }}>Pin</Text>
+            <CharacterBoxes text={formData.address?.substring(0, 35)} count={35} />
+            <CharacterBoxes text={formData.address?.substring(35, 70)} count={35} />
+            <CharacterBoxes text={formData.address?.substring(70, 105)} count={35} />
+            <View style={{ flexDirection: 'row', alignItems: 'center', marginTop: 1 }}>
+              <Text style={{ fontSize: 6, marginRight: 2 }}>Pin</Text>
               <CharacterBoxes text={formData.pincode} count={6} />
             </View>
           </View>
@@ -422,7 +470,7 @@ const ApplicationFormPDF = ({ formData }: { formData: any }) => {
         <View style={styles.formRow}>
           <Text style={styles.formLabel}>6. Parent Mobile No</Text>
           <CharacterBoxes text={formData.parentMobile} count={10} />
-          <Text style={{ fontSize: 9, marginLeft: 10, marginRight: 5 }}>Alternate Mobile No</Text>
+          <Text style={{ fontSize: 6, marginLeft: 5, marginRight: 2 }}>Alternate Mobile No</Text>
           <CharacterBoxes text={formData.alternateMobile} count={10} />
         </View>
         
@@ -440,47 +488,127 @@ const ApplicationFormPDF = ({ formData }: { formData: any }) => {
         
         <View style={styles.formRow}>
           <Text style={styles.formLabel}>9. Parent's E-mail</Text>
-          <CharacterBoxes text={formData.parentEmail} count={24} />
+          <CharacterBoxes text={formData.parentEmail} count={35} />
         </View>
         
         <View style={styles.formRow}>
           <Text style={styles.formLabel}>10. Student's E-mail for sending login details</Text>
-          <CharacterBoxes text={formData.studentEmail} count={24} />
+          <CharacterBoxes text={formData.studentEmail} count={35} />
           <Text style={styles.smallNote}>(For Online & Hybrid batch)</Text>
         </View>
         
         <View style={styles.formRow}>
           <Text style={styles.formLabel}>11. Name of School (10th Std)</Text>
-          <CharacterBoxes text={formData.schoolName} count={24} />
+          <CharacterBoxes text={formData.schoolName} count={35} />
         </View>
         
         <View style={styles.formRow}>
           <Text style={styles.formLabel}>12. Marks of 10th</Text>
           <View style={{ flexDirection: 'row', flexWrap: 'wrap' }}>
-            <View style={{ marginRight: 10, marginBottom: 5 }}>
-              <Text style={{ fontSize: 7 }}>SSLC</Text>
+            <View style={{ marginRight: 5, marginBottom: 2 }}>
+              <Text style={{ fontSize: 5 }}>SSLC</Text>
               <CharacterBoxes text={formData.marks?.sslc} count={4} />
             </View>
-            <View style={{ marginRight: 10, marginBottom: 5 }}>
-              <Text style={{ fontSize: 7 }}>+1</Text>
+            <View style={{ marginRight: 5, marginBottom: 2 }}>
+              <Text style={{ fontSize: 5 }}>+1</Text>
               <CharacterBoxes text={formData.marks?.plusOne} count={4} />
             </View>
-            <View style={{ marginRight: 10, marginBottom: 5 }}>
-              <Text style={{ fontSize: 7 }}>CBSE</Text>
+            <View style={{ marginRight: 5, marginBottom: 2 }}>
+              <Text style={{ fontSize: 5 }}>CBSE</Text>
               <CharacterBoxes text={formData.marks?.cbse} count={4} />
             </View>
-            <View style={{ marginRight: 10, marginBottom: 5 }}>
-              <Text style={{ fontSize: 7 }}>ICSE</Text>
+            <View style={{ marginRight: 5, marginBottom: 2 }}>
+              <Text style={{ fontSize: 5 }}>ICSE</Text>
               <CharacterBoxes text={formData.marks?.icse} count={4} />
             </View>
-            <View style={{ marginRight: 10, marginBottom: 5 }}>
-              <Text style={{ fontSize: 7 }}>Others</Text>
+            <View style={{ marginRight: 5, marginBottom: 2 }}>
+              <Text style={{ fontSize: 5 }}>Others</Text>
               <CharacterBoxes text={formData.marks?.others} count={4} />
             </View>
           </View>
         </View>
+      </Page>
+      
+      {/* Second Page */}
+      <Page size="A4" style={styles.page}>
+        {/* Payment Details */}
+        <View style={styles.paymentSection}>
+          <View style={styles.paymentRow}>
+            <Text style={styles.paymentLabel}>14. DD / Online Transfer details</Text>
+            <View style={styles.paymentField}>
+              <Text style={styles.paymentText}>{formData.paymentDetails}</Text>
+            </View>
+            <Text style={styles.paymentLabel}>Total Amount</Text>
+            <CharacterBoxes text={formData.totalAmount} count={5} />
+          </View>
+          
+          <View style={styles.paymentRow}>
+            <Text style={styles.paymentLabel}>Name of Bank</Text>
+            <View style={styles.paymentField}>
+              <Text style={styles.paymentText}>{formData.bankName}</Text>
+            </View>
+          </View>
+        </View>
         
-        {/* Photo and Signatures would be on the next page */}
+        {/* Terms and Conditions */}
+        <View style={styles.termsSection}>
+          <Text style={[styles.termItem, { fontWeight: 'bold' }]}>15. a) I have received the Prospectus and gone through it.</Text>
+          <Text style={styles.termItem}>    b) I have received the Joining Memo.</Text>
+          <Text style={styles.termItem}>    c) I will not discontinue the course</Text>
+          <Text style={styles.termItem}>    d) I am agreeable to all the changes in the time table you make according to necessity.</Text>
+          <Text style={styles.termItem}>    e) I abide by the rules regarding discipline.</Text>
+          <Text style={styles.termItem}>    f) Your decision will be final on matters regarding discipline.</Text>
+          <Text style={styles.termItem}>    g) Attendance of 200 will be collected for each session of 1.5 hrs conducted after the date of joining.</Text>
+          <Text style={styles.termItem}>    h) Prof. P. C. Thomas Classes reserve the absolute right to decide the mode of coaching.</Text>
+        </View>
+        
+        {/* Photo Box */}
+        <View style={{ position: 'absolute', top: 30, right: 15, width: 50, height: 60, border: '1px solid #000', justifyContent: 'center', alignItems: 'center' }}>
+          <Text style={{ fontSize: 6, textAlign: 'center' }}>PHOTO</Text>
+          {formData.photo && <Image src={formData.photo} style={{ width: '100%', height: '100%', position: 'absolute' }} />}
+        </View>
+        
+        {/* Refund Policy */}
+        <View style={styles.refundSection}>
+          <Text style={styles.refundTitle}>REFUND OF FEES (General Norms)</Text>
+          <Text style={styles.refundText}>If you discontinue the course you have joined, you are entitled for a partial refund of fee, as per the following norms</Text>
+          <Text style={styles.refundText}>a) The application for refund must be made in the prescribed form available free of cost from the office on request.</Text>
+          <Text style={styles.refundText}>b) Admission fees will not be refunded. It is the Registration form, ID Registration form, ID card and office procedures.</Text>
+          <Text style={styles.refundText}>c) The cost of study material supplied at the time of admission or later will not be refunded.</Text>
+          <Text style={styles.refundText}>d) GST will not be refunded.</Text>
+          <Text style={styles.refundText}>e) For getting refund of the remaining amount the student or guardian has to apply in the prescribed application form. If the application is submitted in person, the ID card receipt indicating the date of receipt of application will be given. If not submitted in person the application is indicating the date of receiving the application will be taken for calculating the amount of refund.</Text>
+          <Text style={styles.refundText}>f) (1) Number of sessions before deduction at the above rates will be the sessions conducted at the centre between the starting of the course and the date of receipt of refund application. Whether the student has actually present or not is not taken into consideration.</Text>
+          <Text style={styles.refundText}>   (2) The actual number of sessions conducted may be more than the quoted above. It depends on the time available before the examination. Any how these sessions will not be included for refund.</Text>
+          <Text style={styles.refundText}>g) The following items namely (1) Fee Receipt (2) Identity card must be surrendered along with the application for refund. Without the above items the refund cannot be made.</Text>
+          <Text style={styles.refundText}>h) The refund amount will be given as crossed cheque in the name of the parent or guardian within 30 days after the receipt of the application for refund.</Text>
+        </View>
+        
+        <View style={{ marginTop: 3 }}>
+          <Text style={{ fontSize: 8, fontWeight: 'bold' }}>I agree to it.</Text>
+        </View>
+        
+        {/* Signatures */}
+        <View style={styles.signatureRow}>
+          <View style={styles.signatureBox}>
+            <Text style={{ fontSize: 8 }}>16.</Text>
+            <Text style={styles.signatureLabel}>Signature of Student</Text>
+            <View style={styles.signature}>
+              {formData.studentSignature && <Image src={formData.studentSignature} style={{ width: '100%', height: '100%' }} />}
+            </View>
+          </View>
+          
+          <View style={styles.signatureBox}>
+            <Text style={styles.signatureLabel}>Signature of Parent</Text>
+            <View style={styles.signature}>
+              {formData.parentSignature && <Image src={formData.parentSignature} style={{ width: '100%', height: '100%' }} />}
+            </View>
+          </View>
+          
+          <View style={styles.signatureBox}>
+            <Text style={styles.signatureLabel}>Date</Text>
+            <CharacterBoxes text={formData.date} count={6} />
+          </View>
+        </View>
       </Page>
     </Document>
   );
