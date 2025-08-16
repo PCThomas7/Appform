@@ -182,7 +182,7 @@ const styles = StyleSheet.create({
   },
   signature: {
     width: 100,
-    height: 24,
+    height: 50,
     border: '1px solid #000',
   },
   refundSection: {
@@ -582,8 +582,11 @@ const ApplicationFormPDF = ({ formData }: { formData: any }) => {
         
         {/* Photo Box */}
         <View style={{ position: 'absolute', top: 60, right: 20, width: 70, height: 80, border: '1px solid #000', justifyContent: 'center', alignItems: 'center' }}>
-          <Text style={{ fontSize: 9, textAlign: 'center' }}>PHOTO</Text>
-          {formData.photo && <Image src={formData.photo} style={{ width: '100%', height: '100%', position: 'absolute' }} />}
+          {formData.photo ? (
+            <Image src={formData.photo} style={{ width: 68, height: 78 }} />
+          ) : (
+            <Text style={{ fontSize: 9, textAlign: 'center' }}>PHOTO</Text>
+          )}
         </View>
         
         {/* Refund Policy */}
@@ -611,14 +614,18 @@ const ApplicationFormPDF = ({ formData }: { formData: any }) => {
             <Text style={{ fontSize: 8 }}>16.</Text>
             <Text style={styles.signatureLabel}>Signature of Student</Text>
             <View style={styles.signature}>
-              {formData.studentSignature && <Image src={formData.studentSignature} style={{ width: '100%', height: '100%' }} />}
+              {formData.studentSignature ? (
+                <Image src={formData.studentSignature} style={{ width: 98, height: 50 }} />
+              ) : null}
             </View>
           </View>
           
           <View style={styles.signatureBox}>
             <Text style={styles.signatureLabel}>Signature of Parent</Text>
             <View style={styles.signature}>
-              {formData.parentSignature && <Image src={formData.parentSignature} style={{ width: '100%', height: '100%' }} />}
+              {formData.parentSignature ? (
+                <Image src={formData.parentSignature} style={{ width: 98, height: 50 }} />
+              ) : null}
             </View>
           </View>
           
