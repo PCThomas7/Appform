@@ -14,6 +14,9 @@ import TermsAndConditions from './components/TermsAndConditions';
 import Signatures from './components/Signatures';
 import PhotoUpload from './components/PhotoUpload';
 
+// Import PDF generator
+import { PDFDownloadButton } from './utils/pdfGenerator';
+
 function App() {
   const { register, handleSubmit, setValue, formState: { errors } } = useForm();
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -39,12 +42,17 @@ function App() {
           <div className="text-center p-8">
             <h3 className="text-xl font-bold text-green-600 mb-4">Application Submitted Successfully!</h3>
             <p className="mb-4">Thank you for submitting your application.</p>
-            <button 
-              onClick={() => setIsSubmitted(false)}
-              className="bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700 transition-colors"
-            >
-              Fill Another Application
-            </button>
+            <div className="flex flex-col items-center space-y-4">
+              <div className="bg-green-600 text-white px-6 py-2 rounded-md hover:bg-green-700 transition-colors">
+                <PDFDownloadButton formData={formData} />
+              </div>
+              <button 
+                onClick={() => setIsSubmitted(false)}
+                className="bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700 transition-colors"
+              >
+                Fill Another Application
+              </button>
+            </div>
           </div>
         ) : (
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-8">
