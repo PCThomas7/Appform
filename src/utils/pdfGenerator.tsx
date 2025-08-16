@@ -5,70 +5,79 @@ const styles = StyleSheet.create({
   page: {
     flexDirection: 'column',
     backgroundColor: '#FFFFFF',
-    padding: 8,
+    padding: 10,
     fontFamily: 'Helvetica',
+    marginTop: 20,
   },
   header: {
-    marginBottom: 4,
+    marginBottom: 8,
     textAlign: 'center',
   },
   title: {
-    fontSize: 10,
+    fontSize: 12,
     fontWeight: 'bold',
-    marginBottom: 1,
+    marginBottom: 2,
   },
   subtitle: {
-    fontSize: 8,
-    marginBottom: 1,
+    fontSize: 10,
+    marginBottom: 4,
   },
   note: {
-    fontSize: 6,
-    marginTop: 1,
-    marginBottom: 1,
+    fontSize: 8,
+    marginTop: 2,
+    marginBottom: 2,
+    
   },
   headerRow: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: 'space-around',
     alignItems: 'center',
-    marginBottom: 1,
+    marginBottom: 4,
+    marginTop: 4,
   },
   rollNoBox: {
-    width: 40,
-    height: 14,
+    width: 50,
+    height: 18,
     border: '1px solid #000',
     marginLeft: 'auto',
   },
   rollNoLabel: {
-    fontSize: 6,
+    fontSize: 8,
     textAlign: 'center',
   },
   table: {
-    marginTop: 1,
-    marginBottom: 4,
+    marginTop: 4,
+    marginBottom: 8,
     borderWidth: 1,
     borderColor: '#000',
+    marginLeft: 30,
+    marginRight: 30,
   },
   tableRow: {
     flexDirection: 'row',
     borderBottomWidth: 1,
     borderBottomColor: '#000',
+    minHeight: 20,
   },
   tableHeader: {
     backgroundColor: '#f0f0f0',
   },
   tableCell: {
-    padding: 1,
-    fontSize: 5,
+    padding: 2,
+    fontSize: 8,
     borderRightWidth: 1,
     borderRightColor: '#000',
     textAlign: 'center',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   tableCellLeft: {
-    padding: 1,
-    fontSize: 5,
+    padding: 2,
+    fontSize: 8,
     borderRightWidth: 1,
     borderRightColor: '#000',
     textAlign: 'left',
+    justifyContent: 'center',
   },
   courseNoCell: {
     width: '8%',
@@ -86,139 +95,148 @@ const styles = StyleSheet.create({
     marginTop: 0,
   },
   checkboxLabel: {
-    fontSize: 5,
-    marginRight: 1,
+    fontSize: 8,
+    marginRight: 2,
   },
   checkbox: {
-    width: 6,
-    height: 6,
+    width: 10,
+    height: 10,
     border: '1px solid #000',
-    marginRight: 1,
+    marginRight: 2,
   },
   formRow: {
     flexDirection: 'row',
-    marginBottom: 2,
+    marginBottom: 6,
     alignItems: 'flex-start',
+      marginLeft: 30,
+    marginRight: 30,
   },
   formLabel: {
-    fontSize: 6,
+    fontSize: 9,
     width: '20%',
-    marginRight: 2,
+    marginRight: 4,
   },
   formValue: {
     flexDirection: 'row',
     flexWrap: 'wrap',
   },
   charBox: {
-    width: 10,
-    height: 10,
+    width: 14,
+    height: 14,
     border: '1px solid #000',
-    marginRight: 1,
-    marginBottom: 1,
+    marginRight: 2,
+    marginBottom: 2,
     justifyContent: 'center',
     alignItems: 'center',
   },
   charText: {
-    fontSize: 6,
+    fontSize: 9,
     textAlign: 'center',
   },
   radioOption: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginRight: 6,
+    marginRight: 10,
   },
   radioCircle: {
+    width: 10,
+    height: 10,
+    borderRadius: 5,
+    border: '1px solid #000',
+    marginRight: 2,
+  },
+  radioFilled: {
     width: 6,
     height: 6,
     borderRadius: 3,
-    border: '1px solid #000',
-    marginRight: 1,
-  },
-  radioFilled: {
-    width: 3,
-    height: 3,
-    borderRadius: 1.5,
     backgroundColor: '#000',
-    margin: 0.5,
+    margin: 1,
   },
   radioLabel: {
-    fontSize: 6,
+    fontSize: 9,
   },
   smallNote: {
-    fontSize: 4,
+    fontSize: 7,
     fontStyle: 'italic',
-    marginTop: 0,
+    marginTop: 1,
+    marginLeft: 4,
   },
   photo: {
-    width: 50,
-    height: 60,
+    width: 70,
+    height: 80,
     border: '1px solid #000',
-    marginTop: 1,
+    marginTop: 2,
   },
   signatureRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginTop: 6,
+    marginTop: 10,
   },
   signatureBox: {
     width: '30%',
     alignItems: 'center',
   },
   signatureLabel: {
-    fontSize: 6,
-    marginTop: 1,
+    fontSize: 9,
+    marginTop: 2,
   },
   signature: {
-    width: 80,
-    height: 16,
+    width: 100,
+    height: 24,
     border: '1px solid #000',
   },
   refundSection: {
-    marginTop: 3,
+    marginTop: 6,
     border: '1px solid #000',
-    padding: 3,
+    padding: 6,
+      marginLeft: 30,
+    marginRight: 30,
   },
   refundTitle: {
-    fontSize: 6,
+    fontSize: 9,
     fontWeight: 'bold',
     textAlign: 'center',
-    marginBottom: 1,
+    marginBottom: 3,
   },
   refundText: {
-    fontSize: 5,
-    marginBottom: 0.5,
-    lineHeight: 1.1,
+    fontSize: 8,
+    marginBottom: 1,
+    lineHeight: 1.3,
   },
   termsSection: {
-    marginTop: 3,
+    marginTop: 6,
+      marginLeft: 30,
+    marginRight: 30,
   },
   termItem: {
-    fontSize: 6,
-    marginBottom: 0.5,
-    lineHeight: 1.1,
+    fontSize: 9,
+    marginBottom: 1,
+    lineHeight: 1.3,
   },
   paymentSection: {
-    marginBottom: 4,
+    marginBottom: 8,
+      marginLeft: 30,
+    marginRight: 30,
   },
   paymentRow: {
     flexDirection: 'row',
-    marginBottom: 1,
+    marginBottom: 4,
     alignItems: 'center',
   },
   paymentLabel: {
-    fontSize: 6,
+    fontSize: 9,
     fontWeight: 'bold',
   },
   paymentField: {
-    marginLeft: 2,
-    height: 10,
+    marginLeft: 4,
+    height: 16,
     border: '1px solid #000',
     flex: 1,
-    marginRight: 2,
+    marginRight: 4,
   },
   paymentText: {
-    fontSize: 6,
-    paddingLeft: 1,
+    fontSize: 9,
+    paddingLeft: 2,
   },
 });
 
@@ -254,7 +272,7 @@ const Checkbox = ({ checked, label }) => (
   <View style={styles.checkboxRow}>
     {label && <Text style={styles.checkboxLabel}>{label}</Text>}
     <View style={styles.checkbox}>
-      {checked && <Text style={{ fontSize: 8, textAlign: 'center' }}>✓</Text>}
+      {checked && <Text style={{ fontSize: 10, textAlign: 'center' }}>✓</Text>}
     </View>
   </View>
 );
@@ -291,7 +309,7 @@ const ApplicationFormPDF = ({ formData }: { formData: any }) => {
             <View>
               <Text style={styles.rollNoLabel}>Roll No</Text>
               <View style={styles.rollNoBox}>
-                <Text style={{ fontSize: 8, textAlign: 'center' }}>{formData.rollNumber}</Text>
+                <Text style={{ fontSize: 10, textAlign: 'center' }}>{formData.rollNumber}</Text>
               </View>
             </View>
           </View>
@@ -436,11 +454,11 @@ const ApplicationFormPDF = ({ formData }: { formData: any }) => {
         
         <View style={styles.formRow}>
           <Text style={styles.formLabel}>2. Sex</Text>
-          <View style={{ flexDirection: 'row' }}>
+          <View style={{ flexDirection: 'row', alignItems: 'center' }}>
             <RadioButton selected={formData.gender === 'Male'} label="Male" />
             <RadioButton selected={formData.gender === 'Female'} label="Female" />
-            <Text style={[styles.formLabel, { marginLeft: 10 }]}>Date of Birth</Text>
-            <Text style={{ fontSize: 6 }}>{formatDate(formData.dateOfBirth)}</Text>
+            <Text style={[styles.formLabel, { marginLeft: 20 }]}>Date of Birth</Text>
+            <Text style={{ fontSize: 9, border: '1px solid #000', padding: 2, width: 80, textAlign: 'center' }}>{formatDate(formData.dateOfBirth)}</Text>
           </View>
         </View>
         
@@ -563,8 +581,8 @@ const ApplicationFormPDF = ({ formData }: { formData: any }) => {
         </View>
         
         {/* Photo Box */}
-        <View style={{ position: 'absolute', top: 30, right: 15, width: 50, height: 60, border: '1px solid #000', justifyContent: 'center', alignItems: 'center' }}>
-          <Text style={{ fontSize: 6, textAlign: 'center' }}>PHOTO</Text>
+        <View style={{ position: 'absolute', top: 60, right: 20, width: 70, height: 80, border: '1px solid #000', justifyContent: 'center', alignItems: 'center' }}>
+          <Text style={{ fontSize: 9, textAlign: 'center' }}>PHOTO</Text>
           {formData.photo && <Image src={formData.photo} style={{ width: '100%', height: '100%', position: 'absolute' }} />}
         </View>
         

@@ -18,9 +18,54 @@ import PhotoUpload from './components/PhotoUpload';
 import { PDFDownloadButton } from './utils/pdfGenerator';
 
 function App() {
-  const { register, handleSubmit, setValue, formState: { errors } } = useForm();
+  const { register, handleSubmit, setValue, formState: { errors }, reset } = useForm();
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [formData, setFormData] = useState({});
+
+  const loadDummyData = () => {
+    const dummyData = {
+      // Course Selection
+      selectedCourse: 'offline_regular_state_jee',
+      rollNumber: 'PCR2025',
+      
+      // Personal Information
+      name: 'JOHN DOE',
+      gender: 'Male',
+      dateOfBirth: '2008-05-15',
+      fathersName: 'JAMES DOE',
+      occupation: 'SOFTWARE ENGINEER',
+      address: '123 MAIN STREET, APARTMENT 4B, KOCHI',
+      pincode: '682001',
+      
+      // Parent Information
+      parentMobile: '9876543210',
+      alternateMobile: '8765432109',
+      parentWhatsapp: '9876543210',
+      studentMobile: '7654321098',
+      parentEmail: 'parent@example.com',
+      studentEmail: 'student@example.com',
+      
+      // Educational Details
+      schoolName: 'ST. THOMAS HIGHER SECONDARY SCHOOL',
+      board: 'CBSE',
+      marksType: 'percentage',
+      marks: '95',
+      
+      // Payment Details
+      paymentMethod: 'cash',
+      amount: '25000',
+      
+      // Terms and Conditions
+      termsAccepted: true,
+      
+      // Physics, Chemistry, Maths checkboxes for course 7
+      physics: false,
+      chemistry: false,
+      maths: false
+    };
+    
+    reset(dummyData);
+  };
 
   const onSubmit = (data: any) => {
     console.log('Form submitted:', data);
@@ -36,6 +81,16 @@ function App() {
           <h1 className="text-2xl font-bold">Prof. P. C. Thomas Classes</h1>
           <h2 className="text-xl">APPLICATION FORM FOR REGULAR & SUNDAY BATCHES (2025-27)</h2>
           <p className="text-sm mt-2">Note : Read Item No. 15 before filling up. (Put a ✓ mark in the appropriate box)</p>
+        </div>
+        
+        <div className="flex justify-end mb-4">
+          <button 
+            type="button" 
+            onClick={loadDummyData}
+            className="bg-gray-600 text-white px-4 py-2 rounded-md hover:bg-gray-700 transition-colors text-sm"
+          >
+            Load Sample Data
+          </button>
         </div>
         
         {isSubmitted ? (
