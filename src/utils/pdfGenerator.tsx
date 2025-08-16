@@ -570,14 +570,16 @@ const ApplicationFormPDF = ({ formData }: { formData: any }) => {
         
         {/* Terms and Conditions */}
         <View style={styles.termsSection}>
-          <Text style={[styles.termItem, { fontWeight: 'bold' }]}>15. a) I have received the Prospectus and gone through it.</Text>
-          <Text style={styles.termItem}>    b) I have received the Joining Memo.</Text>
-          <Text style={styles.termItem}>    c) I will not discontinue the course</Text>
-          <Text style={styles.termItem}>    d) I am agreeable to all the changes in the time table you make according to necessity.</Text>
-          <Text style={styles.termItem}>    e) I abide by the rules regarding discipline.</Text>
-          <Text style={styles.termItem}>    f) Your decision will be final on matters regarding discipline.</Text>
-          <Text style={styles.termItem}>    g) Attendance of 200 will be collected for each session of 1.5 hrs conducted after the date of joining.</Text>
-          <Text style={styles.termItem}>    h) Prof. P. C. Thomas Classes reserve the absolute right to decide the mode of coaching.</Text>
+          <Text style={styles.termItem}>15. a) I have received the Prospectus and gone through it.</Text>
+          <Text style={[styles.termItem , {paddingLeft:12}]}>    b) I have received the Joining Memo.</Text>
+          <Text style={[styles.termItem , {paddingLeft:12}]}>    c) I will not discontinue the course</Text>
+          <Text style={[styles.termItem , {paddingLeft:12}]}>    d) I am agreable to all the changes in the time table you
+ make according to necessity</Text>
+          <Text style={[styles.termItem , {paddingLeft:12}]}>    e) I shall obey all the rules regarding discipline.</Text>
+          <Text style={[styles.termItem , {paddingLeft:12}]}>    f) Your decision will be final on matters regarding discipline.</Text>
+          <Text style={[styles.termItem , {paddingLeft:12}]}>    g) An amount of Rs. 200 will be deducted for each teaching session
+ of 1.5 hrs conducted after the date of joining.</Text>
+          <Text style={[styles.termItem , {paddingLeft:12}]}>    h) Prof. P. C. Thomas Classes reserve the absolute right to decide the mode of coaching.</Text>
         </View>
         
         {/* Photo Box */}
@@ -593,8 +595,10 @@ const ApplicationFormPDF = ({ formData }: { formData: any }) => {
         <View style={styles.refundSection}>
           <Text style={styles.refundTitle}>REFUND OF FEES (General Norms)</Text>
           <Text style={styles.refundText}>If you discontinue the course you have joined, you are entitled for a partial refund of fee, as per the following norms</Text>
-          <Text style={styles.refundText}>a) The application for refund must be made in the prescribed form available free of cost from the office on request.</Text>
-          <Text style={styles.refundText}>b) Admission fees will not be refunded. It is the Registration form, ID Registration form, ID card and office procedures.</Text>
+          <Text style={styles.refundText}> a) The application for refund must be made in the prescribed form available free of cost from
+ the office on request.</Text>
+          <Text style={styles.refundText}> b) Admission fees will not be refunded. It is the cost of Registration form, Brochure, Joining
+ memo, List of hostels, Application forms, Identity & Mark card and office procedures.</Text>
           <Text style={styles.refundText}>c) The cost of study material supplied at the time of admission or later will not be refunded.</Text>
           <Text style={styles.refundText}>d) GST will not be refunded.</Text>
           <Text style={styles.refundText}>e) For getting refund of the remaining amount the student or guardian has to apply in the prescribed application form. If the application is submitted in person, the ID card receipt indicating the date of receipt of application will be given. If not submitted in person the application is indicating the date of receiving the application will be taken for calculating the amount of refund.</Text>
