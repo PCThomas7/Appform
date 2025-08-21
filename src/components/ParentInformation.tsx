@@ -90,7 +90,7 @@ const ParentInformation = ({ register, errors }: ParentInformationProps) => {
             }
           })}
         />
-        <p className="text-xs italic mt-1">(For Online & Hybrid batch)</p>
+        
         {errors.studentMobile && (
           <p className="text-red-500 text-sm">{errors.studentMobile.message}</p>
         )}
@@ -129,7 +129,6 @@ const ParentInformation = ({ register, errors }: ParentInformationProps) => {
           })}
           className="w-full border rounded-md p-2"
         />
-        <p className="text-xs italic mt-1">(For Online & Hybrid batch)</p>
         {errors.studentEmail && (
           <p className="text-red-500 text-sm">{errors.studentEmail.message}</p>
         )}

@@ -302,8 +302,8 @@ const ApplicationFormPDF = ({ formData }: { formData: any }) => {
       <Page size="A4" style={styles.page}>
         {/* Header */}
         <View style={styles.header}>
-          <Text style={styles.title}>Prof. P. C. Thomas Classes</Text>
-          <Text style={styles.subtitle}>APPLICATION FORM FOR REGULAR & SUNDAY BATCHES (2025-27)</Text>
+          <Text style={styles.title}>Prof. P. C. Thomas Classes & Chaithanya Classes</Text>
+          <Text style={styles.subtitle}>APPLICATION FORM</Text>
           <View style={styles.headerRow}>
             <Text style={styles.note}>Note : Read Item No. 15 before filling up. (Put a ✓ mark in the appropriate box)</Text>
             <View>
@@ -322,7 +322,7 @@ const ApplicationFormPDF = ({ formData }: { formData: any }) => {
               <Text>Course No.</Text>
             </View>
             <View style={[styles.tableCellLeft, styles.courseNameCell]}>
-              <Text>Course (Tuition & Entrance XI-XII)</Text>
+              <Text>Course </Text>
             </View>
             <View style={[styles.tableCell, styles.streamCell]}>
               <Text>JEE Stream</Text>
@@ -332,10 +332,26 @@ const ApplicationFormPDF = ({ formData }: { formData: any }) => {
             </View>
           </View>
           
-          {/* Bridge Course */}
+          {/* Repeater */}
           <View style={styles.tableRow}>
             <View style={[styles.tableCell, styles.courseNoCell]}>
               <Text>1</Text>
+            </View>
+            <View style={[styles.tableCellLeft, styles.courseNameCell]}>
+              <Text>Repeater</Text>
+            </View>
+            <View style={[styles.tableCell, styles.streamCell]}>
+              <Checkbox checked={courseType === 'repeater' && isJEEStream} />
+            </View>
+            <View style={[styles.tableCell, styles.streamCell]}>
+              <Checkbox checked={courseType === 'repeater' && isNEETStream} />
+            </View>
+          </View>
+          
+          {/* Bridge Course */}
+          <View style={styles.tableRow}>
+            <View style={[styles.tableCell, styles.courseNoCell]}>
+              <Text>2</Text>
             </View>
             <View style={[styles.tableCellLeft, styles.courseNameCell]}>
               <Text>Bridge Course</Text>
@@ -348,58 +364,26 @@ const ApplicationFormPDF = ({ formData }: { formData: any }) => {
             </View>
           </View>
           
-          {/* School Integrated */}
-          <View style={styles.tableRow}>
-            <View style={[styles.tableCell, styles.courseNoCell]}>
-              <Text>2</Text>
-            </View>
-            <View style={[styles.tableCellLeft, styles.courseNameCell]}>
-              <Text>School Integrated Entrance Coaching</Text>
-            </View>
-            <View style={[styles.tableCell, styles.streamCell]}>
-              <Checkbox checked={courseType === 'school_integrated' && isJEEStream} />
-            </View>
-            <View style={[styles.tableCell, styles.streamCell]}>
-              <Checkbox checked={courseType === 'school_integrated' && isNEETStream} />
-            </View>
-          </View>
-          
-          {/* Offline Regular State */}
+          {/* Offline Regular */}
           <View style={styles.tableRow}>
             <View style={[styles.tableCell, styles.courseNoCell]}>
               <Text>3</Text>
             </View>
             <View style={[styles.tableCellLeft, styles.courseNameCell]}>
-              <Text>Offline Regular Tuition & Entrance Coaching (State)</Text>
+              <Text>Offline Regular Tuition & Entrance Coaching</Text>
             </View>
             <View style={[styles.tableCell, styles.streamCell]}>
-              <Checkbox checked={courseType === 'offline_regular_state' && isJEEStream} />
+              <Checkbox checked={courseType === 'offline_regular' && isJEEStream} />
             </View>
             <View style={[styles.tableCell, styles.streamCell]}>
-              <Checkbox checked={courseType === 'offline_regular_state' && isNEETStream} />
-            </View>
-          </View>
-          
-          {/* Offline Regular CBSE */}
-          <View style={styles.tableRow}>
-            <View style={[styles.tableCell, styles.courseNoCell]}>
-              <Text>4</Text>
-            </View>
-            <View style={[styles.tableCellLeft, styles.courseNameCell]}>
-              <Text>Offline Regular Tuition & Entrance Coaching (CBSE)</Text>
-            </View>
-            <View style={[styles.tableCell, styles.streamCell]}>
-              <Checkbox checked={courseType === 'offline_regular_cbse' && isJEEStream} />
-            </View>
-            <View style={[styles.tableCell, styles.streamCell]}>
-              <Checkbox checked={courseType === 'offline_regular_cbse' && isNEETStream} />
+              <Checkbox checked={courseType === 'offline_regular' && isNEETStream} />
             </View>
           </View>
           
           {/* Online Regular */}
           <View style={styles.tableRow}>
             <View style={[styles.tableCell, styles.courseNoCell]}>
-              <Text>5</Text>
+              <Text>4</Text>
             </View>
             <View style={[styles.tableCellLeft, styles.courseNameCell]}>
               <Text>Online Regular Tuition & Entrance Coaching</Text>
@@ -415,26 +399,26 @@ const ApplicationFormPDF = ({ formData }: { formData: any }) => {
           {/* Hybrid Batch */}
           <View style={styles.tableRow}>
             <View style={[styles.tableCell, styles.courseNoCell]}>
-              <Text>6</Text>
+              <Text>5</Text>
             </View>
             <View style={[styles.tableCellLeft, styles.courseNameCell]}>
-              <Text>Tuition & Entrance Hybrid (Holiday-Vacation) Batch</Text>
+              <Text>Holiday-Vacation Batch - Tuition & Entrance Coaching</Text>
             </View>
             <View style={[styles.tableCell, styles.streamCell]}>
-              <Checkbox checked={courseType === 'tuition_entrance_hybrid' && isJEEStream} />
+              <Checkbox checked={courseType === 'holiday_vacation' && isJEEStream} />
             </View>
             <View style={[styles.tableCell, styles.streamCell]}>
-              <Checkbox checked={courseType === 'tuition_entrance_hybrid' && isNEETStream} />
+              <Checkbox checked={courseType === 'holiday_vacation' && isNEETStream} />
             </View>
           </View>
           
           {/* Tuition only */}
           <View style={styles.tableRow}>
             <View style={[styles.tableCell, styles.courseNoCell]}>
-              <Text>7</Text>
+              <Text>6</Text>
             </View>
             <View style={[styles.tableCellLeft, styles.courseNameCell]}>
-              <Text>Tuition only Hybrid Batch</Text>
+              <Text>PCM Tuition only</Text>
             </View>
             <View style={[styles.tableCell, { width: '40%' }]}>
               <View style={{ flexDirection: 'row', justifyContent: 'space-around' }}>
@@ -501,7 +485,6 @@ const ApplicationFormPDF = ({ formData }: { formData: any }) => {
         <View style={styles.formRow}>
           <Text style={styles.formLabel}>8. Student Mobile number for sending login details</Text>
           <CharacterBoxes text={formData.studentMobile} count={10} />
-          <Text style={styles.smallNote}>(For Online & Hybrid batch)</Text>
         </View>
         
         <View style={styles.formRow}>
@@ -512,7 +495,6 @@ const ApplicationFormPDF = ({ formData }: { formData: any }) => {
         <View style={styles.formRow}>
           <Text style={styles.formLabel}>10. Student's E-mail for sending login details</Text>
           <CharacterBoxes text={formData.studentEmail} count={35} />
-          <Text style={styles.smallNote}>(For Online & Hybrid batch)</Text>
         </View>
         
         <View style={styles.formRow}>

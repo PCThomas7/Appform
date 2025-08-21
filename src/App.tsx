@@ -78,8 +78,8 @@ function App() {
     <div className="container mx-auto px-4 py-8">
       <div className="max-w-4xl mx-auto p-6 bg-white shadow-md rounded-md">
         <div className="text-center mb-6">
-          <h1 className="text-2xl font-bold">Prof. P. C. Thomas Classes</h1>
-          <h2 className="text-xl">APPLICATION FORM FOR REGULAR & SUNDAY BATCHES (2025-27)</h2>
+          <h1 className="text-2xl font-bold">Prof. P. C. Thomas Classes & Chaithanya Classes</h1>
+          <h2 className="text-xl">APPLICATION FORM </h2>
           <p className="text-sm mt-2">Note : Read Item No. 15 before filling up. (Put a ✓ mark in the appropriate box)</p>
         </div>
         

@@ -13,13 +13,12 @@ type CourseSelectionProps = {
 
 const CourseSelection = ({ register, errors }: CourseSelectionProps) => {
   const courses = [
-    { id: 1, name: 'Bridge Course', value: 'bridge' },
-    { id: 2, name: 'School Integrated Entrance Coaching', value: 'school_integrated' },
-    { id: 3, name: 'Offline Regular Tuition & Entrance Coaching (State)', value: 'offline_regular_state' },
-    { id: 4, name: 'Offline Regular Tuition & Entrance Coaching (CBSE)', value: 'offline_regular_cbse' },
-    { id: 5, name: 'Online Regular Tuition & Entrance Coaching', value: 'online_regular' },
-    { id: 6, name: 'Tuition & Entrance Hybrid (Holiday-Vacation) Batch', value: 'tuition_entrance_hybrid' },
-    { id: 7, name: 'Tuition only Hybrid Batch', value: 'tuition_only_hybrid' },
+    { id: 1, name: 'Repeater', value: 'repeater' },
+    { id: 2, name: 'Bridge Course', value: 'bridge' },
+    { id: 3, name: 'Offline Regular Tuition & Entrance Coaching ', value: 'offline_regular' },
+    { id: 4, name: 'Online Regular Tuition & Entrance Coaching', value: 'online_regular' },
+    { id: 5, name: 'Holiday-Vacation Batch - Tuition & Entrance Coaching', value: 'holiday_vacation' },
+    { id: 6, name: 'PCM Tuition only', value: 'tuition_only_hybrid' },
   ];
 
   return (
@@ -38,7 +37,7 @@ const CourseSelection = ({ register, errors }: CourseSelectionProps) => {
         <thead>
           <tr className="bg-gray-100">
             <th className="border p-2 text-center w-16">Course No.</th>
-            <th className="border p-2 text-center">Course (Tuition & Entrance XI-XII)</th>
+            <th className="border p-2 text-center">Course </th>
             <th className="border p-2 text-center w-24">JEE Stream</th>
             <th className="border p-2 text-center w-24">NEET Stream</th>
           </tr>
@@ -49,7 +48,7 @@ const CourseSelection = ({ register, errors }: CourseSelectionProps) => {
               <td className="border p-2 text-center">{course.id}</td>
               <td className="border p-2">{course.name}</td>
               <td className="border p-2 text-center">
-                {course.id !== 7 ? (
+                {course.id !== 6 ? (
                   <input
                     type="radio"
                     id={`course-${course.id}-jee`}
