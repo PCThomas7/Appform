@@ -622,16 +622,58 @@ const ApplicationFormPDF = ({ formData }: { formData: any }) => {
           <View style={styles.paymentRow}>
             <Text style={styles.paymentLabel}>14. DD / Online Transfer details</Text>
             <View style={styles.paymentField}>
-              <Text style={styles.paymentText}>{formData.paymentDetails}</Text>
+              <Text style={styles.paymentText}>{formData.paymentMethod}</Text>
             </View>
             <Text style={styles.paymentLabel}>Total Amount</Text>
             <CharacterBoxes text={formData.totalAmount} count={5} />
           </View>
           
           <View style={styles.paymentRow}>
+            <Text style={styles.paymentLabel}>Name of the Student</Text>
+            <View style={styles.paymentField}>
+              <Text style={styles.paymentText}>{formData.studentName}</Text>
+            </View>
+          </View>
+          
+          <View style={styles.paymentRow}>
+            <Text style={styles.paymentLabel}>Name of the Account Holder</Text>
+            <View style={styles.paymentField}>
+              <Text style={styles.paymentText}>{formData.accountHolderName}</Text>
+            </View>
+          </View>
+          
+          <View style={styles.paymentRow}>
+            <Text style={styles.paymentLabel}>Amount Remitted</Text>
+            <View style={styles.paymentField}>
+              <Text style={styles.paymentText}>{formData.amountRemitted}</Text>
+            </View>
+          </View>
+          
+          <View style={styles.paymentRow}>
             <Text style={styles.paymentLabel}>Name of Bank</Text>
             <View style={styles.paymentField}>
               <Text style={styles.paymentText}>{formData.bankName}</Text>
+            </View>
+          </View>
+          
+          <View style={styles.paymentRow}>
+            <Text style={styles.paymentLabel}>Reference Number</Text>
+            <View style={styles.paymentField}>
+              <Text style={styles.paymentText}>{formData.referenceNumber}</Text>
+            </View>
+          </View>
+          
+          <View style={styles.paymentRow}>
+            <Text style={styles.paymentLabel}>Date of Remittance</Text>
+            <View style={styles.paymentField}>
+              <Text style={styles.paymentText}>{formData.remittanceDate}</Text>
+            </View>
+          </View>
+          
+          <View style={styles.paymentRow}>
+            <Text style={styles.paymentLabel}>Mobile No</Text>
+            <View style={styles.paymentField}>
+              <Text style={styles.paymentText}>{formData.mobileNumber}</Text>
             </View>
           </View>
         </View>
