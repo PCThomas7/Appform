@@ -1,11 +1,26 @@
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 
 type EducationalDetailsProps = {
   register: any;
   errors: any;
+  setValue?: any;
 };
 
-const EducationalDetails = ({ register, errors }: EducationalDetailsProps) => {
+const EducationalDetails = ({ register, errors, setValue }: EducationalDetailsProps) => {
+  const [selectedBoard, setSelectedBoard] = useState('');
+
+  const handleBoardChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const board = e.target.value;
+    setSelectedBoard(board);
+    // Clear previous marks when board changes
+    setValue('marks.sslc', '');
+    setValue('marks.cbse', '');
+    setValue('marks.stateBoardPlusTwo', '');
+    setValue('marks.icse', '');
+    setValue('marks.others', '');
+  };
+
   return (
     <div className="space-y-4">
       {/* School Name */}
@@ -19,63 +34,58 @@ const EducationalDetails = ({ register, errors }: EducationalDetailsProps) => {
         />
       </div>
 
-      {/* Marks */}
+      {/* Board Selection */}
       <div>
-        <label className="block text-sm font-medium mb-1">12. Marks of 10th</label>
+        <label htmlFor="board" className="block text-sm font-medium mb-1">12. Board of 10th</label>
+        <select
+          id="board"
+          {...register('board')}
+          className="w-full border rounded-md p-2"
+          onChange={handleBoardChange}
+        >
+          <option value="">Select Board</option>
+          <option value="SSLC">SSLC</option>
+          <option value="CBSE">CBSE</option>
+          <option value="STATE BOARD">STATE BOARD</option>
+          <option value="ICSE">ICSE</option>
+          <option value="Others">Others</option>
+        </select>
+      </div>
+
+      {/* Marks Input based on selected board */}
+      {selectedBoard && (
+        <div>
+          <label htmlFor="marks" className="block text-sm font-medium mb-1">Percentage Marks</label>
+          <input
+            type="text"
+            id="marks"
+            {...register(`marks.${selectedBoard.toLowerCase().replace(' ', '')}`)} 
+            className="w-full border rounded-md p-2"
+            placeholder="Enter percentage"
+          />
+        </div>
+      )}
+
+      {/* Legacy Marks Fields - Hidden but kept for compatibility */}
+      <div className="hidden">
         <div className="grid grid-cols-6 gap-4">
           <div>
-            <label htmlFor="sslc" className="block text-xs font-medium mb-1">SSLC</label>
-            <input
-              type="text"
-              id="sslc"
-              {...register('marks.sslc')}
-              className="w-full border rounded-md p-2"
-            />
+            <input type="text" id="sslc" {...register('marks.sslc')} />
           </div>
           <div>
-            <label htmlFor="plusOne" className="block text-xs font-medium mb-1">+1</label>
-            <input
-              type="text"
-              id="plusOne"
-              {...register('marks.plusOne')}
-              className="w-full border rounded-md p-2"
-            />
+            <input type="text" id="plusOne" {...register('marks.plusOne')} />
           </div>
           <div>
-            <label htmlFor="cbse" className="block text-xs font-medium mb-1">CBSE</label>
-            <input
-              type="text"
-              id="cbse"
-              {...register('marks.cbse')}
-              className="w-full border rounded-md p-2"
-            />
+            <input type="text" id="cbse" {...register('marks.cbse')} />
           </div>
           <div>
-            <label htmlFor="stateBoardPlusTwo" className="block text-xs font-medium mb-1">STATE BOARD</label>
-            <input
-              type="text"
-              id="stateBoardPlusTwo"
-              {...register('marks.stateBoardPlusTwo')}
-              className="w-full border rounded-md p-2"
-            />
+            <input type="text" id="stateBoardPlusTwo" {...register('marks.stateBoardPlusTwo')} />
           </div>
           <div>
-            <label htmlFor="icse" className="block text-xs font-medium mb-1">ICSE</label>
-            <input
-              type="text"
-              id="icse"
-              {...register('marks.icse')}
-              className="w-full border rounded-md p-2"
-            />
+            <input type="text" id="icse" {...register('marks.icse')} />
           </div>
           <div>
-            <label htmlFor="others" className="block text-xs font-medium mb-1">Others</label>
-            <input
-              type="text"
-              id="others"
-              {...register('marks.others')}
-              className="w-full border rounded-md p-2"
-            />
+            <input type="text" id="others" {...register('marks.others')} />
           </div>
         </div>
       </div>

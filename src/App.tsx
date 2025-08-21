@@ -128,7 +128,7 @@ function App() {
             
             <div className="border p-4 rounded-md">
               <h3 className="font-bold mb-4">Educational Details</h3>
-              <EducationalDetails register={register} errors={errors} />
+              <EducationalDetails register={register} errors={errors} setValue={setValue} />
             </div>
             
             <div className="border p-4 rounded-md">

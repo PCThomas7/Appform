@@ -30,10 +30,11 @@ const styles = StyleSheet.create({
   },
   headerRow: {
     flexDirection: 'row',
-    justifyContent: 'space-around',
+    justifyContent: 'center',
     alignItems: 'center',
-    marginBottom: 4,
-    marginTop: 4,
+    gap: 40,
+    marginBottom: 2,
+    marginTop: 2,
   },
   rollNoBox: {
     width: 50,
@@ -272,7 +273,14 @@ const Checkbox = ({ checked, label }) => (
   <View style={styles.checkboxRow}>
     {label && <Text style={styles.checkboxLabel}>{label}</Text>}
     <View style={styles.checkbox}>
-      {checked && <Text style={{ fontSize: 10, textAlign: 'center' }}>✓</Text>}
+      {checked && (
+        <View style={{
+          width: 6,
+          height: 6,
+          backgroundColor: '#000',
+          margin: 1,
+        }} />
+      )}
     </View>
   </View>
 );
@@ -504,27 +512,48 @@ const ApplicationFormPDF = ({ formData }: { formData: any }) => {
         
         <View style={styles.formRow}>
           <Text style={styles.formLabel}>12. Marks of 10th</Text>
-          <View style={{ flexDirection: 'row', flexWrap: 'wrap' }}>
-            <View style={{ marginRight: 5, marginBottom: 2 }}>
-              <Text style={{ fontSize: 5 }}>SSLC</Text>
-              <CharacterBoxes text={formData.marks?.sslc} count={4} />
-            </View>
-            <View style={{ marginRight: 5, marginBottom: 2 }}>
-              <Text style={{ fontSize: 5 }}>+1</Text>
-              <CharacterBoxes text={formData.marks?.plusOne} count={4} />
-            </View>
-            <View style={{ marginRight: 5, marginBottom: 2 }}>
-              <Text style={{ fontSize: 5 }}>CBSE</Text>
-              <CharacterBoxes text={formData.marks?.cbse} count={4} />
-            </View>
-            <View style={{ marginRight: 5, marginBottom: 2 }}>
-              <Text style={{ fontSize: 5 }}>ICSE</Text>
-              <CharacterBoxes text={formData.marks?.icse} count={4} />
-            </View>
-            <View style={{ marginRight: 5, marginBottom: 2 }}>
-              <Text style={{ fontSize: 5 }}>Others</Text>
-              <CharacterBoxes text={formData.marks?.others} count={4} />
-            </View>
+          <View style={{ flexDirection: 'row', flexWrap: 'wrap', alignItems: 'center' }}>
+            {/* Show selected board and marks */}
+            {formData.board && (
+              <View style={{ marginRight: 10, marginBottom: 2, flexDirection: 'row', alignItems: 'center' }}>
+                <Text style={{ fontSize: 8, marginRight: 5 }}>{formData.board}:</Text>
+                <View style={{ border: '1px solid #000', padding: 2, width: 40 }}>
+                  <Text style={{ fontSize: 8, textAlign: 'center' }}>
+                    {formData.board === 'SSLC' && formData.marks?.sslc}
+                    {formData.board === 'CBSE' && formData.marks?.cbse}
+                    {formData.board === 'STATE BOARD' && formData.marks?.stateboard}
+                    {formData.board === 'ICSE' && formData.marks?.icse}
+                    {formData.board === 'Others' && formData.marks?.others}
+                  </Text>
+                </View>
+              </View>
+            )}
+            
+            {/* Legacy display for backward compatibility */}
+            {!formData.board && (
+              <>
+                <View style={{ marginRight: 5, marginBottom: 2 }}>
+                  <Text style={{ fontSize: 5 }}>SSLC</Text>
+                  <CharacterBoxes text={formData.marks?.sslc} count={4} />
+                </View>
+                <View style={{ marginRight: 5, marginBottom: 2 }}>
+                  <Text style={{ fontSize: 5 }}>+1</Text>
+                  <CharacterBoxes text={formData.marks?.plusOne} count={4} />
+                </View>
+                <View style={{ marginRight: 5, marginBottom: 2 }}>
+                  <Text style={{ fontSize: 5 }}>CBSE</Text>
+                  <CharacterBoxes text={formData.marks?.cbse} count={4} />
+                </View>
+                <View style={{ marginRight: 5, marginBottom: 2 }}>
+                  <Text style={{ fontSize: 5 }}>ICSE</Text>
+                  <CharacterBoxes text={formData.marks?.icse} count={4} />
+                </View>
+                <View style={{ marginRight: 5, marginBottom: 2 }}>
+                  <Text style={{ fontSize: 5 }}>Others</Text>
+                  <CharacterBoxes text={formData.marks?.others} count={4} />
+                </View>
+              </>
+            )}
           </View>
         </View>
       </Page>
