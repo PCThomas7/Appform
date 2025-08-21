@@ -1,4 +1,5 @@
 import { useForm } from 'react-hook-form';
+import { useState } from 'react';
 
 type TermsAndConditionsProps = {
   register: any;
@@ -6,6 +7,7 @@ type TermsAndConditionsProps = {
 };
 
 const TermsAndConditions = ({ register, errors }: TermsAndConditionsProps) => {
+  const [showTerms, setShowTerms] = useState(false);
   const terms = [
     'I have received the Prospectus and gone through it.',
     'I have received the Joining Memo.',
@@ -20,24 +22,60 @@ const TermsAndConditions = ({ register, errors }: TermsAndConditionsProps) => {
 
   return (
     <div className="space-y-4">
-      <h3 className="font-bold">14. a) I have received the Prospectus and gone through it.</h3>
+      <h3 className="font-bold text-lg md:text-xl">14. Terms and Conditions</h3>
       
-      <div className="space-y-2">
-        {terms.map((term, index) => (
-          <div key={index} className="flex items-start">
-            <input
-              type="checkbox"
-              id={`term-${index}`}
-              {...register(`termsAgreed.${index}`, { required: 'You must agree to all terms' })}
-              className="h-4 w-4 mt-1 mr-2"
-            />
-            <label htmlFor={`term-${index}`} className="text-sm">{term}</label>
+      <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 shadow-sm">
+        <div className="mb-4">
+          <button 
+            type="button" 
+            onClick={() => setShowTerms(!showTerms)}
+            className="text-blue-600 hover:text-blue-800 text-sm font-medium flex items-center"
+          >
+            {showTerms ? (
+              <>
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+                Hide Terms
+              </>
+            ) : (
+              <>
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+                View All Terms
+              </>
+            )}
+          </button>
+        </div>
+        
+        {showTerms && (
+          <div className="space-y-2 mb-4 p-3 bg-white rounded border border-gray-100 text-sm">
+            {terms.map((term, index) => (
+              <div key={index} className="flex items-start py-1">
+                <span className="text-blue-600 font-bold mr-2">{index + 1}.</span>
+                <p className="text-sm">{term}</p>
+              </div>
+            ))}
           </div>
-        ))}
+        )}
+        
+        <div className="flex items-start bg-blue-50 p-3 rounded-md">
+          <input
+            type="checkbox"
+            id="termsAgreed"
+            {...register('termsAgreed', { required: 'You must agree to all terms and conditions' })}
+            className="h-5 w-5 mt-0.5 mr-3 accent-blue-600"
+          />
+          <label htmlFor="termsAgreed" className="text-sm font-medium">
+            I have read and agree to all the terms and conditions listed above
+          </label>
+        </div>
+        
+        {errors.termsAgreed && (
+          <p className="text-red-500 text-sm mt-2">{errors.termsAgreed.message}</p>
+        )}
       </div>
-      {errors.termsAgreed && (
-        <p className="text-red-500 text-sm">{errors.termsAgreed.message}</p>
-      )}
 
       <div className="mt-6">
         <h3 className="font-bold mb-2">REFUND OF FEES (General Norms)</h3>
