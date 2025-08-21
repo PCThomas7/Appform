@@ -556,6 +556,63 @@ const ApplicationFormPDF = ({ formData }: { formData: any }) => {
             )}
           </View>
         </View>
+        
+        {/* +2 Educational Details for Repeater Course */}
+        {formData.selectedCourse?.startsWith('repeater') && (
+          <>
+            <View style={styles.formRow}>
+              <Text style={styles.formLabel}>Name of School (+2 std)</Text>
+              <CharacterBoxes text={formData.schoolNamePlusTwo} count={35} />
+            </View>
+            
+            <View style={styles.formRow}>
+              <Text style={styles.formLabel}>Board (+2 std)</Text>
+              <View style={{ flexDirection: 'row', flexWrap: 'wrap', alignItems: 'center' }}>
+                {/* Show selected +2 board and marks */}
+                {formData.boardPlusTwo && (
+                  <View style={{ marginRight: 10, marginBottom: 2, flexDirection: 'row', alignItems: 'center' }}>
+                    <Text style={{ fontSize: 8, marginRight: 5 }}>{formData.boardPlusTwo}:</Text>
+                    <View style={{ border: '1px solid #000', padding: 2, width: 40 }}>
+                      <Text style={{ fontSize: 8, textAlign: 'center' }}>
+                        {formData.boardPlusTwo === 'SSLC' && formData.marksPlusTwo?.sslc}
+                        {formData.boardPlusTwo === 'CBSE' && formData.marksPlusTwo?.cbse}
+                        {formData.boardPlusTwo === 'STATE BOARD' && formData.marksPlusTwo?.stateboard}
+                        {formData.boardPlusTwo === 'ICSE' && formData.marksPlusTwo?.icse}
+                        {formData.boardPlusTwo === 'Others' && formData.marksPlusTwo?.others}
+                      </Text>
+                    </View>
+                  </View>
+                )}
+                
+                {/* Legacy display for backward compatibility */}
+                {!formData.boardPlusTwo && (
+                  <>
+                    <View style={{ marginRight: 5, marginBottom: 2 }}>
+                      <Text style={{ fontSize: 5 }}>SSLC</Text>
+                      <CharacterBoxes text={formData.marksPlusTwo?.sslc} count={4} />
+                    </View>
+                    <View style={{ marginRight: 5, marginBottom: 2 }}>
+                      <Text style={{ fontSize: 5 }}>CBSE</Text>
+                      <CharacterBoxes text={formData.marksPlusTwo?.cbse} count={4} />
+                    </View>
+                    <View style={{ marginRight: 5, marginBottom: 2 }}>
+                      <Text style={{ fontSize: 5 }}>STATE BOARD</Text>
+                      <CharacterBoxes text={formData.marksPlusTwo?.stateBoardPlusTwo} count={4} />
+                    </View>
+                    <View style={{ marginRight: 5, marginBottom: 2 }}>
+                      <Text style={{ fontSize: 5 }}>ICSE</Text>
+                      <CharacterBoxes text={formData.marksPlusTwo?.icse} count={4} />
+                    </View>
+                    <View style={{ marginRight: 5, marginBottom: 2 }}>
+                      <Text style={{ fontSize: 5 }}>Others</Text>
+                      <CharacterBoxes text={formData.marksPlusTwo?.others} count={4} />
+                    </View>
+                  </>
+                )}
+              </View>
+            </View>
+          </>
+        )}
       </Page>
       
       {/* Second Page */}
