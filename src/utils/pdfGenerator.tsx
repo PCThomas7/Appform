@@ -134,6 +134,18 @@ const styles = StyleSheet.create({
     fontSize: 9,
     textAlign: 'center',
   },
+  normalCell: {
+    height: 14,
+    border: '1px solid #000',
+    justifyContent: 'center',
+    paddingLeft: 2,
+    paddingRight: 2,
+    marginRight: 2,
+  },
+  normalCellText: {
+    fontSize: 9,
+    textAlign: 'left',
+  },
   radioOption: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -241,19 +253,17 @@ const styles = StyleSheet.create({
   },
 });
 
-// Helper function to create character boxes for text fields
+// Helper function to render a single normal cell for text fields (replacing per-character boxes)
 const CharacterBoxes = ({ text = '', count = 12 }) => {
-  const chars = text ? text.toUpperCase().split('') : [];
-  
+  const content = (text ?? '').toString().toUpperCase();
+  // Approximate width based on previous per-char boxes (each ~14 width + 2 margin)
+  const approximateWidth = Math.max(14, count * 16);
+
   return (
     <View style={styles.formValue}>
-      {Array.from({ length: count }).map((_, index) => (
-        <View key={index} style={styles.charBox}>
-          {index < chars.length && (
-            <Text style={styles.charText}>{chars[index]}</Text>
-          )}
-        </View>
-      ))}
+      <View style={[styles.normalCell, { width: approximateWidth }]}> 
+        <Text style={styles.normalCellText} wrap={false}>{content}</Text>
+      </View>
     </View>
   );
 };
@@ -467,9 +477,9 @@ const ApplicationFormPDF = ({ formData }: { formData: any }) => {
         <View style={styles.formRow}>
           <Text style={styles.formLabel}>5. Address</Text>
           <View style={{ width: '80%' }}>
-            <CharacterBoxes text={formData.address?.substring(0, 35)} count={35} />
-            <CharacterBoxes text={formData.address?.substring(35, 70)} count={35} />
-            <CharacterBoxes text={formData.address?.substring(70, 105)} count={35} />
+            <CharacterBoxes text={formData.address?.substring(0, 50)} count={50} />
+            <CharacterBoxes text={formData.address?.substring(50, 100)} count={50} />
+            <CharacterBoxes text={formData.address?.substring(100, 150)} count={50} />
             <View style={{ flexDirection: 'row', alignItems: 'center', marginTop: 1 }}>
               <Text style={{ fontSize: 6, marginRight: 2 }}>Pin</Text>
               <CharacterBoxes text={formData.pincode} count={6} />
