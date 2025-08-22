@@ -7,17 +7,15 @@ type TermsAndConditionsProps = {
 };
 
 const TermsAndConditions = ({ register, errors }: TermsAndConditionsProps) => {
-  const [showTerms, setShowTerms] = useState(false);
+  const [showTerms, setShowTerms] = useState(true);
   const terms = [
     'I have received the Prospectus and gone through it.',
     'I have received the Joining Memo.',
-    'I have received the Time Table.',
-    'I am agreeable to all the changes in the time table you may do according to necessity.',
-    'I will abide by all the rules and regulations of the coaching centre.',
+    'I will not discontinue the course',
+    'I am agreable to all the changes in the time table you make according to necessity',
+    'I shall obey all the rules regarding discipline.',
     'Your decision will be final on matters regarding discipline.',
-    'An amount of Rs. 250 will be deducted from the coaching session fee as admission fee.',
-    'I will not claim any refund of fees if I discontinue the coaching session.',
-    'I understand that the decision of the management of Prof. P.C. Thomas Classes reserve the absolute right to decide the mode of coaching.'
+    'Prof. P.C. Thomas Classes reserve the absolute right to decide the mode of coaching.'
   ];
 
   return (
@@ -90,38 +88,45 @@ const TermsAndConditions = ({ register, errors }: TermsAndConditionsProps) => {
             the office on request.
           </li>
           <li>
-            Admission fees will not be refunded. It is the cost of Registration form, Brochure, Joining
-            memo, List of holidays, Application form, Identity & Mark card and other procedures.
+            Admission fees will not be refunded.
           </li>
           <li>
-            The cost of study material supplied at the time of admission in toto will not be refunded.
+            The cost of study material supplied at the time of admission or laterwill not be refunded.
+          </li>
+          <li>
+            GST will not be refunded.
           </li>
           <li>
             For getting refund of the remaining amount the student or guardian has to apply in the
             prescribed application form. If the application is submitted in person, he will get a receipt
             indicating the date of receiving the application. If not submitted in person the application is
-            to be sent by registered post. The date of receiving the application will be taken for
+            to be sent by registered post A/D. The date of receiving the application will be taken for
             calculating the amount of refund.
           </li>
         </ol>
         
         <p className="text-sm mt-4">
-          Number of sessions taken for deduction of the above rates will be the sessions conducted at
-          the centre from the date of commencement of the course to the date of receiving the
-          application. Whether the student has attended the sessions or not, the sessions conducted at
-          the centre will be taken for calculation.
+        (1) Number of sessions taken for deduction at the above rates will be the sessions conducted at
+        the centre between the starting of the course and the receipt of refund application. Whether the
+        student was actually present or not is not taken into consideration.
+        (2) The actual number of sessions conducted may be more than that quoted above. It depends on
+        the time available before the examination. Any how those sessions will not be included for refund.
         </p>
-        
         <p className="text-sm mt-2">
-          The following items namely (1) Fee Receipt (2) Identity card must be surrendered
+        An amount of Rs. 650/Session for Repeater and Rs. 200/Session for other courses will be deducted for each teaching session conducted after the date of joining 
+        </p>
+        <p className="text-sm mt-2">
+          The following items namely (1) Fee Receipt (2) must be surrendered
           along with the application for refund. Without the above items the refund cannot be made.
         </p>
         
         <p className="text-sm mt-2">
-          The refund amount will be paid by account payee cheque in the name of the parent or guardian.
+          The refund amount will be given as crossed cheque in the name of the parent or guardian
+          within 30 days after the receipt of the application for refund.
         </p>
-        
+      
         <p className="text-sm font-bold mt-4">I agree to it.</p>
+        <input type="checkbox" {...register('refundAgreed', { required: 'You must agree to the refund terms' })} />
       </div>
     </div>
   );

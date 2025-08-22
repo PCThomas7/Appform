@@ -687,13 +687,11 @@ const ApplicationFormPDF = ({ formData }: { formData: any }) => {
  make according to necessity</Text>
           <Text style={[styles.termItem , {paddingLeft:12}]}>    e) I shall obey all the rules regarding discipline.</Text>
           <Text style={[styles.termItem , {paddingLeft:12}]}>    f) Your decision will be final on matters regarding discipline.</Text>
-          <Text style={[styles.termItem , {paddingLeft:12}]}>    g) An amount of Rs. 200 will be deducted for each teaching session
- of 1.5 hrs conducted after the date of joining.</Text>
-          <Text style={[styles.termItem , {paddingLeft:12}]}>    h) Prof. P. C. Thomas Classes reserve the absolute right to decide the mode of coaching.</Text>
+          <Text style={[styles.termItem , {paddingLeft:12}]}>    g) Prof. P. C. Thomas Classes reserve the absolute right to decide the mode of coaching.</Text>
         </View>
         
         {/* Photo Box */}
-        <View style={{ position: 'absolute', top: 60, right: 20, width: 70, height: 80, border: '1px solid #000', justifyContent: 'center', alignItems: 'center' }}>
+        <View style={{ position: 'absolute', top: 100, right: 20, width: 70, height: 80, border: '1px solid #000', justifyContent: 'center', alignItems: 'center' }}>
           {formData.photo ? (
             <Image src={formData.photo} style={{ width: 68, height: 78 }} />
           ) : (
@@ -704,21 +702,26 @@ const ApplicationFormPDF = ({ formData }: { formData: any }) => {
         {/* Refund Policy */}
         <View style={styles.refundSection}>
           <Text style={styles.refundTitle}>REFUND OF FEES (General Norms)</Text>
-          <Text style={styles.refundText}>If you discontinue the course you have joined, you are entitled for a partial refund of fee, as per the following norms</Text>
+          <Text style={styles.refundText}>If you discontinue the class room course you have joined, you are entitled for a partial refund of fee, as per the following norms</Text>
           <Text style={styles.refundText}> a) The application for refund must be made in the prescribed form available free of cost from
  the office on request.</Text>
-          <Text style={styles.refundText}> b) Admission fees will not be refunded. It is the cost of Registration form, Brochure, Joining
- memo, List of hostels, Application forms, Identity & Mark card and office procedures.</Text>
+          <Text style={styles.refundText}> b) Admission fees will not be refunded.</Text>
           <Text style={styles.refundText}>c) The cost of study material supplied at the time of admission or later will not be refunded.</Text>
           <Text style={styles.refundText}>d) GST will not be refunded.</Text>
-          <Text style={styles.refundText}>e) For getting refund of the remaining amount the student or guardian has to apply in the prescribed application form. If the application is submitted in person, the ID card receipt indicating the date of receipt of application will be given. If not submitted in person the application is indicating the date of receiving the application will be taken for calculating the amount of refund.</Text>
-          <Text style={styles.refundText}>f) (1) Number of sessions before deduction at the above rates will be the sessions conducted at the centre between the starting of the course and the date of receipt of refund application. Whether the student has actually present or not is not taken into consideration.</Text>
+          <Text style={styles.refundText}>e) For getting refund of the remaining amount the student or guardian has to apply in the prescribed application form. If the application is submitted in person,  he will get a receipt
+ indicating the date of receiving the application. If not submitted in person the application is
+ to be sent by registered post A/D. The date of receiving the application will be taken for
+ calculating the amount of refund.</Text>
+          <Text style={styles.refundText}>f) (1) Number of sessions taken for deduction at the above rates will be the sessions conducted at
+ the centre between the starting of the course and the receipt of refund application. Whether the
+ student was actually present or not is not taken into consideration. </Text>
           <Text style={styles.refundText}>   (2) The actual number of sessions conducted may be more than the quoted above. It depends on the time available before the examination. Any how these sessions will not be included for refund.</Text>
-          <Text style={styles.refundText}>g) The following items namely (1) Fee Receipt (2) Identity card must be surrendered along with the application for refund. Without the above items the refund cannot be made.</Text>
-          <Text style={styles.refundText}>h) The refund amount will be given as crossed cheque in the name of the parent or guardian within 30 days after the receipt of the application for refund.</Text>
+          <Text style={styles.refundText}>g) An amount of Rs. 650/Session for Repeater and Rs. 200/Session for other courses will be deducted for each teaching session conducted after the date of joining </Text>
+          <Text style={styles.refundText}>h) The following items namely (1) Fee Receipt (2) must be surrendered along with the application for refund. Without the above items the refund cannot be made.</Text>
+          <Text style={styles.refundText}>i) The refund amount will be given as crossed cheque in the name of the parent or guardian within 30 days after the receipt of the application for refund.</Text>
         </View>
         
-        <View style={{ marginTop: 3 }}>
+        <View style={{ marginTop: 3 ,marginLeft:12 ,marginRight:12}}>
           <Text style={{ fontSize: 8, fontWeight: 'bold' }}>I agree to it.</Text>
         </View>
         

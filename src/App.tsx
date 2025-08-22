@@ -3,8 +3,7 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import './App.css';
 
-// Import components
-import ApplicationForm from './components/ApplicationForm';
+
 import CourseSelection from './components/CourseSelection';
 import PersonalInformation from './components/PersonalInformation';
 import ParentInformation from './components/ParentInformation';
