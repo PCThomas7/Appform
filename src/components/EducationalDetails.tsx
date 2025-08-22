@@ -43,9 +43,8 @@ const EducationalDetails = ({ register, errors, setValue }: EducationalDetailsPr
     const board = e.target.value;
     setSelectedBoard(board);
     // Clear previous marks when board changes
-    setValue('marks.sslc', '');
     setValue('marks.cbse', '');
-    setValue('marks.stateBoardPlusTwo', '');
+    setValue('marks.stateboard', '');
     setValue('marks.icse', '');
     setValue('marks.others', '');
   };
@@ -54,9 +53,8 @@ const EducationalDetails = ({ register, errors, setValue }: EducationalDetailsPr
     const board = e.target.value;
     setSelectedPlusTwoBoard(board);
     // Clear previous +2 marks when board changes
-    setValue('marksPlusTwo.sslc', '');
     setValue('marksPlusTwo.cbse', '');
-    setValue('marksPlusTwo.stateBoardPlusTwo', '');
+    setValue('marksPlusTwo.stateboard', '');
     setValue('marksPlusTwo.icse', '');
     setValue('marksPlusTwo.others', '');
   };
@@ -84,7 +82,6 @@ const EducationalDetails = ({ register, errors, setValue }: EducationalDetailsPr
           onChange={handleBoardChange}
         >
           <option value="">Select Board</option>
-          <option value="SSLC">SSLC</option>
           <option value="CBSE">CBSE</option>
           <option value="STATE BOARD">STATE BOARD</option>
           <option value="ICSE">ICSE</option>
@@ -110,16 +107,10 @@ const EducationalDetails = ({ register, errors, setValue }: EducationalDetailsPr
       <div className="hidden">
         <div className="grid grid-cols-6 gap-4">
           <div>
-            <input type="text" id="sslc" {...register('marks.sslc')} />
-          </div>
-          <div>
-            <input type="text" id="plusOne" {...register('marks.plusOne')} />
-          </div>
-          <div>
             <input type="text" id="cbse" {...register('marks.cbse')} />
           </div>
           <div>
-            <input type="text" id="stateBoardPlusTwo" {...register('marks.stateBoardPlusTwo')} />
+            <input type="text" id="stateboard" {...register('marks.stateboard')} />
           </div>
           <div>
             <input type="text" id="icse" {...register('marks.icse')} />
@@ -154,7 +145,6 @@ const EducationalDetails = ({ register, errors, setValue }: EducationalDetailsPr
               onChange={handlePlusTwoBoardChange}
             >
               <option value="">Select Board</option>
-              <option value="SSLC">SSLC</option>
               <option value="CBSE">CBSE</option>
               <option value="STATE BOARD">STATE BOARD</option>
               <option value="ICSE">ICSE</option>
@@ -180,13 +170,10 @@ const EducationalDetails = ({ register, errors, setValue }: EducationalDetailsPr
           <div className="hidden">
             <div className="grid grid-cols-6 gap-4">
               <div>
-                <input type="text" id="sslcPlusTwo" {...register('marksPlusTwo.sslc')} />
-              </div>
-              <div>
                 <input type="text" id="cbsePlusTwo" {...register('marksPlusTwo.cbse')} />
               </div>
               <div>
-                <input type="text" id="stateBoardPlusTwoPlusTwo" {...register('marksPlusTwo.stateBoardPlusTwo')} />
+                <input type="text" id="stateboardPlusTwoPlusTwo" {...register('marksPlusTwo.stateboard')} />
               </div>
               <div>
                 <input type="text" id="icsePlusTwo" {...register('marksPlusTwo.icse')} />

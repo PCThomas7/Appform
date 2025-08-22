@@ -519,7 +519,6 @@ const ApplicationFormPDF = ({ formData }: { formData: any }) => {
                 <Text style={{ fontSize: 8, marginRight: 5 }}>{formData.board}:</Text>
                 <View style={{ border: '1px solid #000', padding: 2, width: 40 }}>
                   <Text style={{ fontSize: 8, textAlign: 'center' }}>
-                    {formData.board === 'SSLC' && formData.marks?.sslc}
                     {formData.board === 'CBSE' && formData.marks?.cbse}
                     {formData.board === 'STATE BOARD' && formData.marks?.stateboard}
                     {formData.board === 'ICSE' && formData.marks?.icse}
@@ -533,12 +532,8 @@ const ApplicationFormPDF = ({ formData }: { formData: any }) => {
             {!formData.board && (
               <>
                 <View style={{ marginRight: 5, marginBottom: 2 }}>
-                  <Text style={{ fontSize: 5 }}>SSLC</Text>
-                  <CharacterBoxes text={formData.marks?.sslc} count={4} />
-                </View>
-                <View style={{ marginRight: 5, marginBottom: 2 }}>
-                  <Text style={{ fontSize: 5 }}>+1</Text>
-                  <CharacterBoxes text={formData.marks?.plusOne} count={4} />
+                  <Text style={{ fontSize: 5 }}>STATE BOARD</Text>
+                  <CharacterBoxes text={formData.marks?.stateboard} count={4} />
                 </View>
                 <View style={{ marginRight: 5, marginBottom: 2 }}>
                   <Text style={{ fontSize: 5 }}>CBSE</Text>
@@ -574,7 +569,6 @@ const ApplicationFormPDF = ({ formData }: { formData: any }) => {
                     <Text style={{ fontSize: 8, marginRight: 5 }}>{formData.boardPlusTwo}:</Text>
                     <View style={{ border: '1px solid #000', padding: 2, width: 40 }}>
                       <Text style={{ fontSize: 8, textAlign: 'center' }}>
-                        {formData.boardPlusTwo === 'SSLC' && formData.marksPlusTwo?.sslc}
                         {formData.boardPlusTwo === 'CBSE' && formData.marksPlusTwo?.cbse}
                         {formData.boardPlusTwo === 'STATE BOARD' && formData.marksPlusTwo?.stateboard}
                         {formData.boardPlusTwo === 'ICSE' && formData.marksPlusTwo?.icse}
@@ -587,17 +581,14 @@ const ApplicationFormPDF = ({ formData }: { formData: any }) => {
                 {/* Legacy display for backward compatibility */}
                 {!formData.boardPlusTwo && (
                   <>
-                    <View style={{ marginRight: 5, marginBottom: 2 }}>
-                      <Text style={{ fontSize: 5 }}>SSLC</Text>
-                      <CharacterBoxes text={formData.marksPlusTwo?.sslc} count={4} />
-                    </View>
+                    
                     <View style={{ marginRight: 5, marginBottom: 2 }}>
                       <Text style={{ fontSize: 5 }}>CBSE</Text>
                       <CharacterBoxes text={formData.marksPlusTwo?.cbse} count={4} />
                     </View>
                     <View style={{ marginRight: 5, marginBottom: 2 }}>
                       <Text style={{ fontSize: 5 }}>STATE BOARD</Text>
-                      <CharacterBoxes text={formData.marksPlusTwo?.stateBoardPlusTwo} count={4} />
+                      <CharacterBoxes text={formData.marksPlusTwo?.stateboard} count={4} />
                     </View>
                     <View style={{ marginRight: 5, marginBottom: 2 }}>
                       <Text style={{ fontSize: 5 }}>ICSE</Text>
