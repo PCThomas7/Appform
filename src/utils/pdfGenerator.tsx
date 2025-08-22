@@ -619,14 +619,7 @@ const ApplicationFormPDF = ({ formData }: { formData: any }) => {
       <Page size="A4" style={styles.page}>
         {/* Payment Details */}
         <View style={styles.paymentSection}>
-          <View style={styles.paymentRow}>
-            <Text style={styles.paymentLabel}>14. DD / Online Transfer details</Text>
-            <View style={styles.paymentField}>
-              <Text style={styles.paymentText}>{formData.paymentMethod}</Text>
-            </View>
-            <Text style={styles.paymentLabel}>Total Amount</Text>
-            <CharacterBoxes text={formData.totalAmount} count={5} />
-          </View>
+          
           
           <View style={styles.paymentRow}>
             <Text style={styles.paymentLabel}>Name of the Student</Text>
@@ -691,7 +684,7 @@ const ApplicationFormPDF = ({ formData }: { formData: any }) => {
         </View>
         
         {/* Photo Box */}
-        <View style={{ position: 'absolute', top: 180, right: 20, width: 70, height: 80, border: '1px solid #000', justifyContent: 'center', alignItems: 'center' }}>
+        <View style={{ position: 'absolute', top: 150, right: 20, width: 70, height: 80, border: '1px solid #000', justifyContent: 'center', alignItems: 'center' }}>
           {formData.photo ? (
             <Image src={formData.photo} style={{ width: 68, height: 78 }} />
           ) : (
@@ -721,7 +714,7 @@ const ApplicationFormPDF = ({ formData }: { formData: any }) => {
           <Text style={styles.refundText}>i) The refund amount will be given as crossed cheque in the name of the parent or guardian within 30 days after the receipt of the application for refund.</Text>
         </View>
         
-        <View style={{ marginTop: 3 ,marginLeft:12 ,marginRight:12}}>
+        <View style={{ marginTop: 3 ,marginLeft:30 ,marginRight:30}}>
           <Text style={{ fontSize: 8, fontWeight: 'bold' }}>I agree to it.</Text>
         </View>
         

@@ -8,17 +8,27 @@ type PaymentDetailsProps = {
 const PaymentDetails = ({ register, errors }: PaymentDetailsProps) => {
   return (
     <div className="space-y-4">
-      {/* Payment Method */}
-      <div>
-        <label htmlFor="paymentMethod" className="block text-sm font-medium mb-1">13. DD / Online Transfer details</label>
-        <input
-          type="text"
-          id="paymentMethod"
-          {...register('paymentMethod')}
-          className="w-full border rounded-md p-2"
-          placeholder="Payment method details"
-        />
+        {/* Online Transfer Details */}
+        <div className="mt-6 p-4 bg-gray-50 rounded-md border border-gray-200">
+        <h3 className="font-medium text-lg mb-3">ONLINE TRANSFER DETAILS</h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <p className="text-sm"><span className="font-medium">Name of the Account Holder:</span> PROF P C THOMAS CLASSES</p>
+            <p className="text-sm"><span className="font-medium">Name of the Bank:</span> SOUTH INDIAN BANK LTD</p>
+            <p className="text-sm"><span className="font-medium">Address:</span> EASTFORT, THRISSUR</p>
+            <p className="text-sm"><span className="font-medium">Account No:</span> 0368073000001102</p>
+          </div>
+          <div>
+            <p className="text-sm"><span className="font-medium">Account Type:</span> CD</p>
+            <p className="text-sm"><span className="font-medium">IFSC:</span> SIBL0000368</p>
+            <p className="text-sm"><span className="font-medium">Email ID:</span> contact@professorpcthomas.com</p>
+          </div>
+        </div>
+        <div className="mt-3 p-3 bg-blue-50 border border-blue-200 rounded-md">
+          <p className="text-sm">Please send the following details to <span className="font-medium">contact@professorpcthomas.com</span> after making the payment to issue Receipt</p>
+        </div>
       </div>
+      
 
       {/* Student Name */}
       <div>
@@ -101,45 +111,8 @@ const PaymentDetails = ({ register, errors }: PaymentDetailsProps) => {
         </div>
       </div>
 
-      {/* Total Amount */}
-      <div>
-        <label htmlFor="totalAmount" className="block text-sm font-medium mb-1">Total Amount</label>
-        <input
-          type="text"
-          id="totalAmount"
-          {...register('totalAmount', {
-            pattern: {
-              value: /^\d+(\.\d{1,2})?$/,
-              message: 'Please enter a valid amount'
-            }
-          })}
-          className="w-full border rounded-md p-2"
-        />
-        {errors.totalAmount && (
-          <p className="text-red-500 text-sm">{errors.totalAmount.message}</p>
-        )}
-      </div>
 
-      {/* Online Transfer Details */}
-      <div className="mt-6 p-4 bg-gray-50 rounded-md border border-gray-200">
-        <h3 className="font-medium text-lg mb-3">ONLINE TRANSFER DETAILS</h3>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div>
-            <p className="text-sm"><span className="font-medium">Name of the Account Holder:</span> PROF P C THOMAS CLASSES</p>
-            <p className="text-sm"><span className="font-medium">Name of the Bank:</span> SOUTH INDIAN BANK LTD</p>
-            <p className="text-sm"><span className="font-medium">Address:</span> EASTFORT, THRISSUR</p>
-            <p className="text-sm"><span className="font-medium">Account No:</span> 0368073000001102</p>
-          </div>
-          <div>
-            <p className="text-sm"><span className="font-medium">Account Type:</span> CD</p>
-            <p className="text-sm"><span className="font-medium">IFSC:</span> SIBL0000368</p>
-            <p className="text-sm"><span className="font-medium">Email ID:</span> contact@professorpcthomas.com</p>
-          </div>
-        </div>
-        <div className="mt-3 p-3 bg-blue-50 border border-blue-200 rounded-md">
-          <p className="text-sm">Please send the following details to <span className="font-medium">contact@professorpcthomas.com</span> after making the payment to issue Receipt</p>
-        </div>
-      </div>
+    
     </div>
   );
 };
