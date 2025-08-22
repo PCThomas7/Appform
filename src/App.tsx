@@ -17,14 +17,14 @@ import PhotoUpload from './components/PhotoUpload';
 import { PDFDownloadButton } from './utils/pdfGenerator';
 
 function App() {
-  const { register, handleSubmit, setValue, formState: { errors }, reset } = useForm();
+  const { register, handleSubmit, setValue, watch, formState: { errors }, reset } = useForm();
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [formData, setFormData] = useState({});
 
   const loadDummyData = () => {
     const dummyData = {
       // Course Selection
-      selectedCourse: 'offline_regular_state_jee',
+      selectedCourse: 'offline_regular_jee',
       rollNumber: 'PCR2025',
       
       // Personal Information
@@ -57,7 +57,7 @@ function App() {
       // Terms and Conditions
       termsAccepted: true,
       
-      // Physics, Chemistry, Maths checkboxes for course 7
+      // Physics, Chemistry, Maths checkboxes for course 6
       physics: false,
       chemistry: false,
       maths: false
@@ -114,7 +114,7 @@ function App() {
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 sm:space-y-6 md:space-y-8">
             <div className="border p-3 sm:p-4 md:p-5 rounded-lg shadow-sm hover:shadow-md transition-shadow bg-white">
               <h3 className="font-bold mb-2 sm:mb-3 md:mb-4 text-base sm:text-lg md:text-xl text-gray-800 border-b pb-2">Course Selection</h3>
-              <CourseSelection register={register} errors={errors} />
+              <CourseSelection register={register} errors={errors} watch={watch} setValue={setValue} />
             </div>
             
             <div className="border p-3 sm:p-4 md:p-5 rounded-lg shadow-sm hover:shadow-md transition-shadow bg-white">

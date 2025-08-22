@@ -691,7 +691,7 @@ const ApplicationFormPDF = ({ formData }: { formData: any }) => {
         </View>
         
         {/* Photo Box */}
-        <View style={{ position: 'absolute', top: 100, right: 20, width: 70, height: 80, border: '1px solid #000', justifyContent: 'center', alignItems: 'center' }}>
+        <View style={{ position: 'absolute', top: 180, right: 20, width: 70, height: 80, border: '1px solid #000', justifyContent: 'center', alignItems: 'center' }}>
           {formData.photo ? (
             <Image src={formData.photo} style={{ width: 68, height: 78 }} />
           ) : (

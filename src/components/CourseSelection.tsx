@@ -1,4 +1,4 @@
-import { useForm } from 'react-hook-form';
+ 
 
 type FormInputs = {
   selectedCourse: string;
@@ -9,9 +9,11 @@ type FormInputs = {
 type CourseSelectionProps = {
   register: any;
   errors: any;
+  watch: any;
+  setValue: any;
 };
 
-const CourseSelection = ({ register, errors }: CourseSelectionProps) => {
+ const CourseSelection = ({ register, errors, watch, setValue }: CourseSelectionProps) => {
   const courses = [
     { id: 1, name: 'Repeater', value: 'repeater' },
     { id: 2, name: 'Bridge Course', value: 'bridge' },
@@ -20,6 +22,13 @@ const CourseSelection = ({ register, errors }: CourseSelectionProps) => {
     { id: 5, name: 'Holiday-Vacation Batch - Tuition & Entrance Coaching', value: 'holiday_vacation' },
     { id: 6, name: 'PCM Tuition only', value: 'tuition_only_hybrid' },
   ];
+
+  // Watch current selections to enforce mutual exclusivity
+  const selectedCourse = watch('selectedCourse');
+  const physics = watch('physics');
+  const chemistry = watch('chemistry');
+  const maths = watch('maths');
+  const pcmSelected = !!(physics || chemistry || maths);
 
   return (
     <div className="space-y-4">
@@ -52,7 +61,16 @@ const CourseSelection = ({ register, errors }: CourseSelectionProps) => {
                       type="radio"
                       id={`course-${course.id}-jee-mobile`}
                       value={`${course.value}_jee`}
-                      {...register('selectedCourse', { required: 'Please select a course' })}
+                      disabled={pcmSelected}
+                      {...register('selectedCourse', {
+                        validate: (v: string) => (pcmSelected || !!v) || 'Please select a course',
+                        onChange: () => {
+                          // Clear PCM selections when choosing a main course
+                          setValue('physics', false);
+                          setValue('chemistry', false);
+                          setValue('maths', false);
+                        },
+                      })}
                       className="h-5 w-5"
                     />
                   ) : (
@@ -62,7 +80,13 @@ const CourseSelection = ({ register, errors }: CourseSelectionProps) => {
                         <input
                           type="checkbox"
                           id="physics-mobile"
-                          {...register('physics')}
+                          disabled={!!selectedCourse}
+                          {...register('physics', {
+                            onChange: () => {
+                              // Clear any main course selection when choosing PCM
+                              setValue('selectedCourse', '');
+                            },
+                          })}
                           className="h-4 w-4"
                         />
                       </div>
@@ -71,7 +95,12 @@ const CourseSelection = ({ register, errors }: CourseSelectionProps) => {
                         <input
                           type="checkbox"
                           id="chemistry-mobile"
-                          {...register('chemistry')}
+                          disabled={!!selectedCourse}
+                          {...register('chemistry', {
+                            onChange: () => {
+                              setValue('selectedCourse', '');
+                            },
+                          })}
                           className="h-4 w-4"
                         />
                       </div>
@@ -80,7 +109,12 @@ const CourseSelection = ({ register, errors }: CourseSelectionProps) => {
                         <input
                           type="checkbox"
                           id="maths-mobile"
-                          {...register('maths')}
+                          disabled={!!selectedCourse}
+                          {...register('maths', {
+                            onChange: () => {
+                              setValue('selectedCourse', '');
+                            },
+                          })}
                           className="h-4 w-4"
                         />
                       </div>
@@ -92,12 +126,20 @@ const CourseSelection = ({ register, errors }: CourseSelectionProps) => {
               <div className="pl-2">
                 <div className="text-center mb-1 text-sm font-medium text-gray-600">NEET Stream</div>
                 <div className="flex justify-center">
-                  {course.id !== 7 && (
+                  {course.id !== 6 && (
                     <input
                       type="radio"
                       id={`course-${course.id}-neet-mobile`}
                       value={`${course.value}_neet`}
-                      {...register('selectedCourse', { required: 'Please select a course' })}
+                      disabled={pcmSelected}
+                      {...register('selectedCourse', {
+                        validate: (v: string) => (pcmSelected || !!v) || 'Please select a course',
+                        onChange: () => {
+                          setValue('physics', false);
+                          setValue('chemistry', false);
+                          setValue('maths', false);
+                        },
+                      })}
                       className="h-5 w-5"
                     />
                   )}
@@ -130,7 +172,15 @@ const CourseSelection = ({ register, errors }: CourseSelectionProps) => {
                       type="radio"
                       id={`course-${course.id}-jee`}
                       value={`${course.value}_jee`}
-                      {...register('selectedCourse', { required: 'Please select a course' })}
+                      disabled={pcmSelected}
+                      {...register('selectedCourse', {
+                        validate: (v: string) => (pcmSelected || !!v) || 'Please select a course',
+                        onChange: () => {
+                          setValue('physics', false);
+                          setValue('chemistry', false);
+                          setValue('maths', false);
+                        },
+                      })}
                       className="h-4 w-4"
                     />
                   ) : (
@@ -139,33 +189,56 @@ const CourseSelection = ({ register, errors }: CourseSelectionProps) => {
                       <input
                         type="checkbox"
                         id="physics"
-                        {...register('physics')}
+                        disabled={!!selectedCourse}
+                        {...register('physics', {
+                          onChange: () => {
+                            setValue('selectedCourse', '');
+                          },
+                        })}
                         className="h-4 w-4 mx-1"
                       />
                       <span className="mx-2">Che</span>
                       <input
                         type="checkbox"
                         id="chemistry"
-                        {...register('chemistry')}
+                        disabled={!!selectedCourse}
+                        {...register('chemistry', {
+                          onChange: () => {
+                            setValue('selectedCourse', '');
+                          },
+                        })}
                         className="h-4 w-4 mx-1"
                       />
                       <span className="mx-2">Maths</span>
                       <input
                         type="checkbox"
                         id="maths"
-                        {...register('maths')}
+                        disabled={!!selectedCourse}
+                        {...register('maths', {
+                          onChange: () => {
+                            setValue('selectedCourse', '');
+                          },
+                        })}
                         className="h-4 w-4 mx-1"
                       />
                     </div>
                   )}
                 </td>
                 <td className="border p-2 text-center">
-                  {course.id !== 7 && (
+                  {course.id !== 6 && (
                     <input
                       type="radio"
                       id={`course-${course.id}-neet`}
                       value={`${course.value}_neet`}
-                      {...register('selectedCourse', { required: 'Please select a course' })}
+                      disabled={pcmSelected}
+                      {...register('selectedCourse', {
+                        validate: (v: string) => (pcmSelected || !!v) || 'Please select a course',
+                        onChange: () => {
+                          setValue('physics', false);
+                          setValue('chemistry', false);
+                          setValue('maths', false);
+                        },
+                      })}
                       className="h-4 w-4"
                     />
                   )}
